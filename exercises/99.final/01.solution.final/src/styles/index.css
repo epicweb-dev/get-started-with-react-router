@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@import './fonts.css';
+@import './theme.css';
+
+:root {
+	--font-poppins: 'Poppins', sans-serif;
+	--font-source-serif-4: 'Source_Serif_4', serif;
+}
+
+@theme {
+	--font-sans: var(--font-poppins);
+	--font-serif: var(--font-source-serif-4);
+}

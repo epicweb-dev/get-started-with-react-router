@@ -13,7 +13,7 @@
 <div align="center">
   <a
     alt="Epic Web logo with the words Deployed Version"
-    href="https://epicweb-dev-get-started-with-react-router.fly.dev/"
+    href="https://get-started-with-react-router.epicweb.dev"
   >
     <img
       width="300px"

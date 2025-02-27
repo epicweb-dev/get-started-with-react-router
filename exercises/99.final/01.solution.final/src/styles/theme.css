@@ -1,0 +1,57 @@
+:root {
+	/* Base colors */
+	--color-background: oklch(97.77% 0.0085 44.89);
+	--color-background-alt: oklch(100% 0 0);
+	--color-text: oklch(24% 0.0243 267);
+	--color-text-secondary: oklch(55.44% 0.0407 257.42);
+
+	/* Brand colors */
+	--color-primary: oklch(54.92% 0.1538 41.03);
+	--color-primary-hover: oklch(49.84% 0.146 40.31);
+	--color-secondary: oklch(42.26% 0.0515 169.22);
+	--color-secondary-hover: oklch(35.08% 0.0429 167.09);
+
+	/* Accent colors */
+	--color-accent-blue: oklch(83.11% 0.0441 198.14);
+	--color-accent-peach: oklch(90.48% 0.0382 31.95);
+	--color-accent-orange: oklch(54.92% 0.1538 41.03);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: oklch(24% 0.0243 267);
+		--color-background-alt: oklch(28.24% 0.0268 269.35);
+		--color-text: oklch(100% 0 0);
+		--color-text-secondary: oklch(71.07% 0.0351 256.79);
+
+		/* Brand colors remain the same for consistency */
+		--color-primary: oklch(54.92% 0.1538 41.03);
+		--color-primary-hover: oklch(49.84% 0.146 40.31);
+		--color-secondary: oklch(42.26% 0.0515 169.22);
+		--color-secondary-hover: oklch(35.08% 0.0429 167.09);
+	}
+}
+
+@theme {
+	--color-background: var(--color-background);
+	--color-background-alt: var(--color-background-alt);
+	--color-text: var(--color-text);
+	--color-text-secondary: var(--color-text-secondary);
+	--color-primary: var(--color-primary);
+	--color-primary-hover: var(--color-primary-hover);
+	--color-secondary: var(--color-secondary);
+	--color-secondary-hover: var(--color-secondary-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+	@theme {
+		--color-background: var(--color-background);
+		--color-background-alt: var(--color-background-alt);
+		--color-text: var(--color-text);
+		--color-text-secondary: var(--color-text-secondary);
+		--color-primary: var(--color-primary);
+		--color-primary-hover: var(--color-primary-hover);
+		--color-secondary: var(--color-secondary);
+		--color-secondary-hover: var(--color-secondary-hover);
+	}
+}
