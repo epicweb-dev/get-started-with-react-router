@@ -12,3 +12,43 @@
 	--font-sans: var(--font-poppins);
 	--font-serif: var(--font-source-serif-4);
 }
+
+@layer base {
+	body {
+		background-color: var(--color-background);
+		color: var(--color-foreground);
+	}
+
+	a {
+		color: var(--color-link);
+		text-decoration: none;
+	}
+
+	a:hover,
+	a:focus {
+		color: var(--color-link-hover);
+		text-decoration: underline;
+	}
+
+	a:active {
+		color: var(--color-link-active);
+	}
+
+	button {
+		background-color: var(--color-button);
+		color: var(--color-button-text);
+		padding: 0.5rem 1.5rem;
+		border-radius: 9999px;
+		border: none;
+		cursor: pointer;
+	}
+
+	button:hover,
+	button:focus {
+		background-color: var(--color-button-hover);
+	}
+
+	button:active {
+		background-color: var(--color-button-active);
+	}
+}

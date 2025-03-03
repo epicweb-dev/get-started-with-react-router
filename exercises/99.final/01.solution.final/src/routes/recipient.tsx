@@ -12,9 +12,14 @@ export function RecipientRoute() {
 
 	if (!recipient) {
 		return (
-			<div className="p-4">
-				<p className="text-red-600">Recipient not found</p>
-				<Link to="/recipients" className="text-blue-600 hover:underline">
+			<div className="container mx-auto mt-4 flex flex-col gap-8">
+				<div className="bg-danger-background rounded-sm p-4">
+					<p className="text-danger-foreground">Recipient not found</p>
+				</div>
+				<Link
+					to="/recipients"
+					className="text-link hover:text-link-hover block text-center hover:underline"
+				>
 					Back to recipients
 				</Link>
 			</div>
@@ -25,9 +30,7 @@ export function RecipientRoute() {
 		<div className="recipient p-4">
 			<h1 className="mb-4 text-3xl font-bold">{recipient.name}</h1>
 			<p className="mb-4 text-lg">Email: {recipient.email}</p>
-			<Link to="/recipients" className="text-blue-600 hover:underline">
-				Back to recipients
-			</Link>
+			<Link to="/recipients">Back to recipients</Link>
 		</div>
 	)
 }

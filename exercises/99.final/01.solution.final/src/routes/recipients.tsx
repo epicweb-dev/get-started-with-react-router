@@ -13,12 +13,7 @@ export function RecipientsRoute() {
 			<ul className="space-y-2">
 				{recipients.map((recipient) => (
 					<li key={recipient.id}>
-						<Link
-							to={`/recipients/${recipient.id}`}
-							className="text-blue-600 hover:underline"
-						>
-							{recipient.name}
-						</Link>
+						<Link to={`/recipients/${recipient.id}`}>{recipient.name}</Link>
 					</li>
 				))}
 			</ul>
