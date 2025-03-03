@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router'
-import { LinkButton } from '../components/Button.tsx'
+import { LinkButton } from '../components/button.tsx'
 
 export function Layout() {
 	return (
