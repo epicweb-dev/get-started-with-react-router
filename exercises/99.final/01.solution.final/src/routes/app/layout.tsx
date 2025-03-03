@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router'
-import { LinkButton } from '../components/button.tsx'
+import { LinkButton } from '#src/components/button.tsx'
 
-export function Layout() {
+export function AppLayout() {
 	return (
 		<div className="bg-background flex min-h-screen flex-col">
 			<header className="bg-background-alt px-4 py-3">
@@ -12,9 +12,8 @@ export function Layout() {
 					>
 						gratitext
 					</Link>
-					<nav className="flex items-center space-x-6">
-						<Link to="/login">Log in</Link>
-						<LinkButton to="/signup">Start 14-day trial</LinkButton>
+					<nav>
+						<LinkButton to="/recipients">Recipients</LinkButton>
 					</nav>
 				</div>
 			</header>

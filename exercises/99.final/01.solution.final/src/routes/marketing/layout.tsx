@@ -16,7 +16,7 @@ export function MarketingLayout() {
 						>
 							gratitext
 						</Link>
-						<nav className="flex space-x-8">
+						<nav className="flex gap-8">
 							<Link to="/contact" className="text-link hover:text-link-hover">
 								Contact
 							</Link>
@@ -27,7 +27,7 @@ export function MarketingLayout() {
 					</div>
 					<div className="border-border flex items-center justify-between border-t pt-8 text-sm">
 						<div>All Rights Reserved</div>
-						<div className="flex space-x-6">
+						<div className="flex gap-6">
 							<Link to="/terms" className="text-link hover:text-link-hover">
 								Terms and Conditions
 							</Link>

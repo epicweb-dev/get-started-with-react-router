@@ -61,8 +61,8 @@
 		--color-info-foreground: oklch(90% 0.1 230);
 
 		/* Link colors */
-		--color-link: oklch(65% 0.146 41.03);
-		--color-link-hover: oklch(65% 0.146 41.03);
+		--color-link: oklch(79% 0.16 41.03);
+		--color-link-hover: oklch(85% 0.14 41.03);
 		--color-link-active: oklch(75% 0.146 41.03);
 	}
 }

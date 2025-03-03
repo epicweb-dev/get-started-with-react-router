@@ -10,7 +10,7 @@ export function RecipientsRoute() {
 	return (
 		<div className="recipients">
 			<h1 className="mb-4 text-3xl font-bold">Recipients</h1>
-			<ul className="space-y-2">
+			<ul className="flex flex-col gap-2">
 				{recipients.map((recipient) => (
 					<li key={recipient.id}>
 						<Link to={`/recipients/${recipient.id}`}>{recipient.name}</Link>
