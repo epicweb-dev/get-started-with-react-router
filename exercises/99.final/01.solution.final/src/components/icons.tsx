@@ -1,8 +1,11 @@
-type IconProps = React.SVGProps<SVGSVGElement>
+export type IconProps = React.SVGProps<SVGSVGElement> & {
+	title?: string
+}
 
-export function ArrowLeftIcon(props: IconProps) {
+export function ArrowLeftIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -13,9 +16,10 @@ export function ArrowLeftIcon(props: IconProps) {
 	)
 }
 
-export function PhoneIcon(props: IconProps) {
+export function PhoneIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -26,9 +30,10 @@ export function PhoneIcon(props: IconProps) {
 	)
 }
 
-export function ClockIcon(props: IconProps) {
+export function ClockIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -39,9 +44,10 @@ export function ClockIcon(props: IconProps) {
 	)
 }
 
-export function SettingsIcon(props: IconProps) {
+export function SettingsIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -58,9 +64,10 @@ export function SettingsIcon(props: IconProps) {
 	)
 }
 
-export function CheckIcon(props: IconProps) {
+export function CheckIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -71,9 +78,10 @@ export function CheckIcon(props: IconProps) {
 	)
 }
 
-export function DotsVerticalIcon(props: IconProps) {
+export function DotsVerticalIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -84,9 +92,10 @@ export function DotsVerticalIcon(props: IconProps) {
 	)
 }
 
-export function MessageIcon(props: IconProps) {
+export function MessageIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -97,14 +106,29 @@ export function MessageIcon(props: IconProps) {
 	)
 }
 
-export function PlusIcon(props: IconProps) {
+export function PlusIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
 				strokeWidth={2}
 				d="M12 4v16m8-8H4"
+			/>
+		</svg>
+	)
+}
+
+export function InfoIcon({ title, ...props }: IconProps) {
+	return (
+		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth={2}
+				d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 			/>
 		</svg>
 	)

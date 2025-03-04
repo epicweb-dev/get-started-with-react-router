@@ -1,14 +1,6 @@
 import { useParams, Link } from 'react-router'
 import { Button } from '#src/components/button.tsx'
-import {
-	ArrowLeftIcon,
-	PhoneIcon,
-	ClockIcon,
-	SettingsIcon,
-	CheckIcon,
-	DotsVerticalIcon,
-	PlusIcon,
-} from '#src/components/icons.tsx'
+import { Icon } from '#src/components/icon.tsx'
 
 type Message = {
 	id: string
@@ -29,10 +21,10 @@ type Recipient = {
 	name: string
 	phone: string
 	schedule: { day: string; time: string } | null
-	messages: Message[]
+	messages: Array<Message>
 }
 
-const recipients: Recipient[] = [
+const recipients: Array<Recipient> = [
 	{
 		id: '1',
 		name: 'Vojta',
@@ -183,8 +175,9 @@ export function RecipientRoute() {
 							to="/recipients"
 							className="text-foreground-alt hover:text-foreground mb-2 flex items-center gap-2 md:mb-8"
 						>
-							<ArrowLeftIcon className="h-5 w-5" />
-							<span className="md:inline">All Recipients</span>
+							<Icon name="ArrowLeft">
+								<span className="md:inline">All Recipients</span>
+							</Icon>
 						</Link>
 
 						<h1 className="text-2xl font-bold md:mb-6 md:text-3xl">
@@ -194,30 +187,32 @@ export function RecipientRoute() {
 
 					<div className="flex items-center gap-4 md:mt-6 md:block md:gap-0">
 						<Button icon variant="borderless" className="md:hidden">
-							<SettingsIcon className="h-5 w-5" />
+							<Icon name="Settings" size="lg" />
 						</Button>
 					</div>
 				</div>
 
 				<div className="mt-4 hidden flex-col gap-4 md:flex">
 					<div className="flex items-center gap-2">
-						<PhoneIcon className="text-foreground-alt h-5 w-5" />
-						<span className="font-mono">{recipient.phone}</span>
+						<Icon name="Phone">
+							<span className="font-mono">{recipient.phone}</span>
+						</Icon>
 					</div>
 
 					<div className="flex items-center gap-2">
-						<ClockIcon className="text-foreground-alt h-5 w-5" />
-						<span>
-							{recipient.schedule ? (
-								`Every ${recipient.schedule.day} at ${recipient.schedule.time}`
-							) : (
-								<span className="text-foreground-alt">Schedule paused</span>
-							)}
-						</span>
+						<Icon name="Clock">
+							<span>
+								{recipient.schedule ? (
+									`Every ${recipient.schedule.day} at ${recipient.schedule.time}`
+								) : (
+									<span className="text-foreground-alt">Schedule paused</span>
+								)}
+							</span>
+						</Icon>
 					</div>
 
 					<Button icon className="mt-2 hidden md:flex">
-						<SettingsIcon className="h-5 w-5" />
+						<Icon name="Settings" />
 					</Button>
 				</div>
 			</div>
@@ -238,8 +233,7 @@ export function RecipientRoute() {
 							<div className="mb-2 flex items-center justify-between">
 								<div className="flex flex-1 items-center gap-2">
 									{message.status === 'sent' ? (
-										<>
-											<CheckIcon className="h-5 w-5" />
+										<Icon name="Check">
 											<span className="text-sm opacity-80 md:text-base">
 												Sent on{' '}
 												{new Date(message.sentAt).toLocaleDateString('en-US', {
@@ -249,10 +243,9 @@ export function RecipientRoute() {
 													year: 'numeric',
 												})}
 											</span>
-										</>
+										</Icon>
 									) : (
-										<>
-											<ClockIcon className="h-5 w-5" />
+										<Icon name="Clock">
 											<span className="text-sm opacity-80 md:text-base">
 												Scheduled for{' '}
 												{new Date(message.scheduledFor).toLocaleDateString(
@@ -265,7 +258,7 @@ export function RecipientRoute() {
 													},
 												)}
 											</span>
-										</>
+										</Icon>
 									)}
 								</div>
 								<Button
@@ -277,7 +270,7 @@ export function RecipientRoute() {
 											: 'text-success-foreground'
 									}
 								>
-									<DotsVerticalIcon className="h-5 w-5" />
+									<Icon name="DotsVertical" />
 								</Button>
 							</div>
 							<p className="text-sm break-all md:text-base">{message.text}</p>
@@ -296,7 +289,7 @@ export function RecipientRoute() {
 							Add to Queue
 						</Button>
 						<Button className="block md:hidden" icon>
-							<PlusIcon />
+							<Icon name="Plus" />
 						</Button>
 					</div>
 				</div>

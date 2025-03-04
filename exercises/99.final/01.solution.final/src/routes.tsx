@@ -3,6 +3,7 @@ import { AppLayout } from './routes/app/layout.tsx'
 import { AboutRoute } from './routes/app/marketing/about.tsx'
 import { HomepageRoute } from './routes/app/marketing/homepage.tsx'
 import { MarketingLayout } from './routes/app/marketing/layout.tsx'
+import { NewRecipientRoute } from './routes/app/new-recipient.tsx'
 import { RecipientRoute } from './routes/app/recipient.tsx'
 import { RecipientsRoute } from './routes/app/recipients.tsx'
 import { SignupRoute } from './routes/signup.tsx'
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'recipients',
 				element: <RecipientsRoute />,
+			},
+			{
+				path: 'recipients/new',
+				element: <NewRecipientRoute />,
 			},
 			{
 				path: 'recipients/:id',

@@ -27,6 +27,16 @@ const buttonStyles = cva(
 					'hover:bg-button/10',
 					'active:bg-button/20',
 				],
+				success: [
+					'bg-success-background text-success-foreground',
+					'hover:bg-success-background/90',
+					'active:bg-success-background/80',
+				],
+				danger: [
+					'bg-danger-background text-danger-foreground',
+					'hover:bg-danger-background/90',
+					'active:bg-danger-background/80',
+				],
 			},
 			icon: {
 				true: 'flex h-10 w-10 items-center justify-center rounded-full p-2',

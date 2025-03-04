@@ -1,11 +1,6 @@
 import { Link } from 'react-router'
 import { Button, LinkButton } from '#src/components/button.tsx'
-import {
-	ClockIcon,
-	DotsVerticalIcon,
-	MessageIcon,
-	PlusIcon,
-} from '#src/components/icons.tsx'
+import { Icon } from '#src/components/icon.tsx'
 
 const recipients = [
 	{
@@ -40,11 +35,10 @@ export function RecipientsRoute() {
 					to="/recipients/new"
 					className="hidden items-center gap-2 md:flex"
 				>
-					<span className="hidden sm:inline">Add New Recipient</span>
-					<PlusIcon className="h-5 w-5" />
+					<Icon name="Plus">Add New Recipient</Icon>
 				</LinkButton>
 				<LinkButton icon to="/recipients/new" className="md:hidden">
-					<PlusIcon className="h-5 w-5" />
+					<Icon name="Plus" />
 				</LinkButton>
 			</div>
 
@@ -116,26 +110,29 @@ export function RecipientsRoute() {
 								{recipient.name}
 							</Link>
 							<Button icon variant="borderless">
-								<DotsVerticalIcon className="h-6 w-6" />
+								<Icon name="DotsVertical" size="lg" />
 							</Button>
 						</div>
 						<div className="flex flex-col gap-2">
 							<div className="text-foreground-alt flex items-center gap-2">
-								<ClockIcon className="h-5 w-5" />
-								{recipient.schedule ? (
-									<span>
-										Every {recipient.schedule.day} at {recipient.schedule.time}
-									</span>
-								) : (
-									<span className="text-foreground-alt">Paused</span>
-								)}
+								<Icon name="Clock">
+									{recipient.schedule ? (
+										<span>
+											Every {recipient.schedule.day} at{' '}
+											{recipient.schedule.time}
+										</span>
+									) : (
+										<span className="text-foreground-alt">Paused</span>
+									)}
+								</Icon>
 							</div>
 							<div className="text-foreground-alt flex items-center gap-2">
-								<MessageIcon className="h-5 w-5" />
-								<span>
-									{recipient.messageCount} message
-									{recipient.messageCount !== 1 ? 's' : ''} prepared
-								</span>
+								<Icon name="Message">
+									<span>
+										{recipient.messageCount} message
+										{recipient.messageCount !== 1 ? 's' : ''} prepared
+									</span>
+								</Icon>
 							</div>
 						</div>
 					</div>

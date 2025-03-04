@@ -14,6 +14,10 @@
 }
 
 @layer base {
+	* {
+		border-color: var(--color-border);
+		outline-color: var(--color-ring);
+	}
 	body {
 		background-color: var(--color-background);
 		color: var(--color-foreground);
@@ -50,5 +54,12 @@
 
 	button:active {
 		background-color: var(--color-button-active);
+	}
+
+	input,
+	select {
+		background-color: var(--color-input-background);
+		color: var(--color-input-text);
+		border-color: var(--color-input-border);
 	}
 }

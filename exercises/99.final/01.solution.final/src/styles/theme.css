@@ -16,11 +16,6 @@
 	--color-button-secondary-active: oklch(37% 0.1462 39.92);
 	--color-button-secondary-text: oklch(100% 0 0);
 
-	/* Link colors */
-	--color-link: oklch(54.92% 0.1538 41.03);
-	--color-link-hover: oklch(45% 0.146 41.03);
-	--color-link-active: oklch(35% 0.146 41.03);
-
 	/* Status colors */
 	--color-success-background: oklch(59% 0.12 155.38);
 	--color-success-foreground: oklch(100% 0 0);
@@ -30,6 +25,17 @@
 	--color-warning-foreground: oklch(25% 0.15 85);
 	--color-info-background: oklch(61% 0.14 254);
 	--color-info-foreground: oklch(100% 0 0);
+
+	/* Link colors */
+	--color-link: oklch(54.92% 0.1538 41.03);
+	--color-link-hover: oklch(45% 0.146 41.03);
+	--color-link-active: oklch(35% 0.146 41.03);
+
+	/* Input colors */
+	--color-input-background: oklch(100% 0 0);
+	--color-input-border: oklch(85% 0.02 267);
+	--color-input-text: oklch(24% 0.0243 267);
+	--color-ring: oklch(85% 0.02 267);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,8 +56,8 @@
 		--color-button-secondary-active: oklch(42% 0.1462 39.92);
 		--color-button-secondary-text: oklch(100% 0 0);
 
-		/* Status colors - dark mode */
-		--color-success-background: oklch(30% 0.12 142);
+		/* Status colors */
+		--color-success-background: oklch(48% 0.07 158);
 		--color-success-foreground: oklch(100% 0 0);
 		--color-danger-background: oklch(30% 0.14 25);
 		--color-danger-foreground: oklch(90% 0.12 25);
@@ -64,6 +70,12 @@
 		--color-link: oklch(79% 0.16 41.03);
 		--color-link-hover: oklch(85% 0.14 41.03);
 		--color-link-active: oklch(75% 0.146 41.03);
+
+		/* Input colors */
+		--color-input-background: oklch(24% 0.0243 267);
+		--color-input-border: oklch(35% 0.03 267);
+		--color-input-text: oklch(100% 0 0);
+		--color-ring: oklch(35% 0.03 267);
 	}
 }
 
@@ -92,4 +104,8 @@
 	--color-warning-foreground: var(--color-warning-foreground);
 	--color-info-background: var(--color-info-background);
 	--color-info-foreground: var(--color-info-foreground);
+	--color-input-background: var(--color-input-background);
+	--color-input-border: var(--color-input-border);
+	--color-input-text: var(--color-input-text);
+	--color-ring: var(--color-ring);
 }
