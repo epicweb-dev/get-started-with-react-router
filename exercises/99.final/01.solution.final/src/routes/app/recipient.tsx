@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router'
+import { useParams, Link, useRouteError } from 'react-router'
 import { Button } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import data from '#src/data.json'
@@ -9,21 +9,7 @@ export function RecipientRoute() {
 	const { id } = useParams()
 	const recipient = recipients.find((r) => r.id === id)
 
-	if (!recipient) {
-		return (
-			<div className="container mx-auto mt-4 flex flex-col gap-8">
-				<div className="bg-danger-background rounded-sm p-4">
-					<p className="text-danger-foreground">Recipient not found</p>
-				</div>
-				<Link
-					to="/recipients"
-					className="text-link hover:text-link-hover block text-center hover:underline"
-				>
-					Back to recipients
-				</Link>
-			</div>
-		)
-	}
+	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
 
 	return (
 		<div className="flex min-h-0 flex-grow flex-col md:flex-row">
@@ -161,6 +147,28 @@ export function RecipientRoute() {
 					</div>
 				</div>
 			</div>
+		</div>
+	)
+}
+
+export function RecipientErrorBoundary() {
+	const error = useRouteError()
+
+	return (
+		<div className="container mx-auto mt-4 flex flex-col gap-8 px-8">
+			<div className="bg-danger-background rounded-sm p-4">
+				<p className="text-danger-foreground">
+					{error instanceof Error ? error.message : 'Unknown error'}
+				</p>
+			</div>
+			<Link
+				to="/recipients"
+				className="text-link hover:text-link-hover block text-center hover:underline"
+			>
+				<Icon name="ArrowLeft" className="inline-block">
+					Back to recipients
+				</Icon>
+			</Link>
 		</div>
 	)
 }
