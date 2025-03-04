@@ -1,4 +1,4 @@
-import { LinkButton } from '../../components/button.tsx'
+import { LinkButton } from '#src/components/button.tsx'
 
 export function HomepageRoute() {
 	return (

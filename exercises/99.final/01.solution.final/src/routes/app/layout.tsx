@@ -3,7 +3,7 @@ import { LinkButton } from '#src/components/button.tsx'
 
 export function AppLayout() {
 	return (
-		<div className="bg-background flex h-screen flex-col overflow-hidden">
+		<div className="bg-background flex h-screen flex-col">
 			<header className="bg-background-alt px-4 py-3">
 				<div className="container mx-auto flex max-w-6xl items-center justify-between">
 					<Link
