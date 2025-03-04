@@ -10,6 +10,6 @@ test('Hello World! should be rendered', async ({ page }) => {
 test('About should be rendered', async ({ page }) => {
 	await page.goto('/about')
 
-	const about = page.getByText('About')
+	const about = page.getByRole('heading', { name: /about/i })
 	await expect(about).toBeVisible({ timeout: 500 })
 })
