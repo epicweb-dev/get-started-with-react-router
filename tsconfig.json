@@ -5,10 +5,16 @@
   ],
   "references": [
     {
-      "path": "exercises/01.example/01.problem.hello"
+      "path": "exercises/01.create-router/01.problem.create-router"
     },
     {
-      "path": "exercises/01.example/01.solution.goodbye"
+      "path": "exercises/01.create-router/01.solution.create-router"
+    },
+    {
+      "path": "exercises/01.create-router/02.problem.router-elements"
+    },
+    {
+      "path": "exercises/01.create-router/02.solution.router-elements"
     },
     {
       "path": "exercises/99.final/01.solution.final"

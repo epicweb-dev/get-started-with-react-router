@@ -1,10 +1,17 @@
 {
   "type": "module",
+  "scripts": {
+    "test:setup": "playwright install chromium --with-deps",
+    "test": "cd .. && node ./epicshop/test.js ..s"
+  },
   "dependencies": {
     "@epic-web/workshop-app": "^5.11.0",
     "@epic-web/workshop-utils": "^5.11.0",
     "chokidar": "^4.0.3",
+    "enquirer": "^2.4.1",
     "execa": "^9.5.2",
-    "fs-extra": "^11.3.0"
+    "fs-extra": "^11.3.0",
+    "match-sorter": "^8.0.0",
+    "p-limit": "^6.2.0"
   }
 }
