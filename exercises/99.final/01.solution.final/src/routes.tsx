@@ -18,7 +18,7 @@ import { SignupRoute } from './routes/signup.tsx'
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route>
+		<Route errorElement={<UnknownErrorBoundary />}>
 			<Route element={<AppLayout />}>
 				<Route element={<MarketingLayout />}>
 					<Route index element={<HomepageRoute />} />
@@ -37,3 +37,14 @@ export const router = createBrowserRouter(
 		</Route>,
 	),
 )
+
+function UnknownErrorBoundary() {
+	return (
+		<div className="bg-danger-background text-danger-foreground mt-20 flex h-full flex-col items-center justify-center px-8 py-12">
+			<h1 className="text-2xl font-bold">Unknown error</h1>
+			<p className="text-danger-foreground/80 text-sm">
+				An unknown error occurred. Please try again later.
+			</p>
+		</div>
+	)
+}
