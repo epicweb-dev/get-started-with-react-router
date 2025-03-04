@@ -23,6 +23,24 @@
       "path": "exercises/01.create-router/03.solution.sibling-routes"
     },
     {
+      "path": "exercises/02.linking/01.problem.achors"
+    },
+    {
+      "path": "exercises/02.linking/01.solution.achors"
+    },
+    {
+      "path": "exercises/02.linking/02.problem.links"
+    },
+    {
+      "path": "exercises/02.linking/02.solution.links"
+    },
+    {
+      "path": "exercises/02.linking/03.problem.custom-link"
+    },
+    {
+      "path": "exercises/02.linking/03.solution.custom-link"
+    },
+    {
       "path": "exercises/99.final/01.solution.final"
     }
   ]
