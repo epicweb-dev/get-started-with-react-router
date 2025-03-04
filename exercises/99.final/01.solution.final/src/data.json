@@ -2,8 +2,8 @@
 	"recipients": [
 		{
 			"id": "1",
-			"name": "Vojta",
-			"phone": "+ 420 606 754 513",
+			"name": "Bethany",
+			"phone": "(555) 123-4567",
 			"schedule": { "day": "Thu", "time": "10 AM GMT+2" },
 			"messageCount": 2,
 			"messages": [
@@ -36,7 +36,7 @@
 		{
 			"id": "2",
 			"name": "Mom",
-			"phone": "+ 420 777 131 355",
+			"phone": "(555) 234-5678",
 			"schedule": { "day": "Wed", "time": "10 AM GMT+2" },
 			"messageCount": 0,
 			"messages": [
@@ -57,7 +57,7 @@
 		{
 			"id": "3",
 			"name": "Dad",
-			"phone": "+ 420 773 213 133",
+			"phone": "(555) 345-6789",
 			"schedule": null,
 			"messageCount": 3,
 			"messages": [
@@ -83,8 +83,8 @@
 		},
 		{
 			"id": "4",
-			"name": "Sarah",
-			"phone": "+ 420 608 442 789",
+			"name": "Emily",
+			"phone": "(555) 456-7890",
 			"schedule": { "day": "Mon", "time": "9 AM GMT+2" },
 			"messageCount": 2,
 			"messages": [
@@ -104,8 +104,8 @@
 		},
 		{
 			"id": "5",
-			"name": "Grandma Eva",
-			"phone": "+ 420 776 554 321",
+			"name": "Grandpa",
+			"phone": "(555) 567-8901",
 			"schedule": { "day": "Sun", "time": "11 AM GMT+2" },
 			"messageCount": 2,
 			"messages": [
