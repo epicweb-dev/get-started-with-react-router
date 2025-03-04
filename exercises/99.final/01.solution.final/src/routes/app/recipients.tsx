@@ -1,30 +1,9 @@
 import { Link } from 'react-router'
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
+import data from '#src/data.json'
 
-const recipients = [
-	{
-		id: '1',
-		name: 'Vojta',
-		phone: '+ 420 606 754 513',
-		schedule: { day: 'Thu', time: '10 AM GMT+2' },
-		messageCount: 2,
-	},
-	{
-		id: '2',
-		name: 'Mom',
-		phone: '+ 420 777 131 355',
-		schedule: { day: 'Wed', time: '10 AM GMT+2' },
-		messageCount: 0,
-	},
-	{
-		id: '3',
-		name: 'Dad',
-		phone: '+ 420 773 213 133',
-		schedule: null,
-		messageCount: 3,
-	},
-]
+const recipients = data.recipients
 
 export function RecipientsRoute() {
 	return (
