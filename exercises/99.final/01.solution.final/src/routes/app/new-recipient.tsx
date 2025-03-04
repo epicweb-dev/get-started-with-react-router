@@ -120,7 +120,7 @@ export function NewRecipientRoute() {
 					</Icon>
 				</div>
 
-				<Button type="submit" variant="success">
+				<Button type="submit" status="success">
 					<Icon name="Plus">Add New Recipient</Icon>
 				</Button>
 			</form>

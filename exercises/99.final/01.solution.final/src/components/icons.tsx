@@ -16,6 +16,20 @@ export function ArrowLeftIcon({ title, ...props }: IconProps) {
 	)
 }
 
+export function ArrowRightIcon({ title, ...props }: IconProps) {
+	return (
+		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth={2}
+				d="M9 5l7 7-7 7"
+			/>
+		</svg>
+	)
+}
+
 export function PhoneIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>

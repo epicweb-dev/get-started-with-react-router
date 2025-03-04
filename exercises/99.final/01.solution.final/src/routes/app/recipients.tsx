@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Button, LinkButton } from '#src/components/button.tsx'
+import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 
 const recipients = [
@@ -31,15 +31,15 @@ export function RecipientsRoute() {
 		<div className="container mx-auto p-4 md:p-8">
 			<div className="mb-8 flex items-center justify-between">
 				<h1 className="text-4xl font-bold">Recipients</h1>
-				<LinkButton
+				<ButtonLink
 					to="/recipients/new"
 					className="hidden items-center gap-2 md:flex"
 				>
 					<Icon name="Plus">Add New Recipient</Icon>
-				</LinkButton>
-				<LinkButton icon to="/recipients/new" className="md:hidden">
+				</ButtonLink>
+				<ButtonLink icon to="/recipients/new" className="md:hidden">
 					<Icon name="Plus" />
-				</LinkButton>
+				</ButtonLink>
 			</div>
 
 			{/* Table view (hidden on mobile) */}

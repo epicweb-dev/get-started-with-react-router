@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { Button } from '#src/components/button.tsx'
+import { Icon } from '#src/components/icon.tsx'
 
 export function SignupRoute() {
 	return (
@@ -48,21 +49,10 @@ export function SignupRoute() {
 							<Button
 								type="submit"
 								className="flex w-full items-center justify-center gap-2"
+								status="success"
 							>
 								<span>Continue</span>
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M9 5l7 7-7 7"
-									/>
-								</svg>
+								<Icon name="ArrowRight" size="md" />
 							</Button>
 						</div>
 					</form>

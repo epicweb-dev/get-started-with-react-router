@@ -1,4 +1,9 @@
-import { createBrowserRouter } from 'react-router'
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+} from 'react-router'
+import { NotFoundRoute } from './routes/404.tsx'
 import { AppLayout } from './routes/app/layout.tsx'
 import { AboutRoute } from './routes/app/marketing/about.tsx'
 import { HomepageRoute } from './routes/app/marketing/homepage.tsx'
@@ -8,39 +13,20 @@ import { RecipientRoute } from './routes/app/recipient.tsx'
 import { RecipientsRoute } from './routes/app/recipients.tsx'
 import { SignupRoute } from './routes/signup.tsx'
 
-export const router = createBrowserRouter([
-	{
-		element: <AppLayout />,
-		children: [
-			{
-				element: <MarketingLayout />,
-				children: [
-					{
-						index: true,
-						element: <HomepageRoute />,
-					},
-					{
-						path: 'about',
-						element: <AboutRoute />,
-					},
-				],
-			},
-			{
-				path: 'recipients',
-				element: <RecipientsRoute />,
-			},
-			{
-				path: 'recipients/new',
-				element: <NewRecipientRoute />,
-			},
-			{
-				path: 'recipients/:id',
-				element: <RecipientRoute />,
-			},
-		],
-	},
-	{
-		path: '/signup',
-		element: <SignupRoute />,
-	},
-])
+export const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route>
+			<Route element={<AppLayout />}>
+				<Route element={<MarketingLayout />}>
+					<Route index element={<HomepageRoute />} />
+					<Route path="about" element={<AboutRoute />} />
+				</Route>
+				<Route path="recipients" element={<RecipientsRoute />} />
+				<Route path="recipients/new" element={<NewRecipientRoute />} />
+				<Route path="recipients/:id" element={<RecipientRoute />} />
+			</Route>
+			<Route path="/signup" element={<SignupRoute />} />
+			<Route path="*" element={<NotFoundRoute />} />
+		</Route>,
+	),
+)

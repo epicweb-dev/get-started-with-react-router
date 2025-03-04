@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router'
-import { LinkButton } from '#src/components/button.tsx'
+import { ButtonLink } from '#src/components/button.tsx'
 
 export function AppLayout() {
 	return (
@@ -13,7 +13,7 @@ export function AppLayout() {
 						gratitext
 					</Link>
 					<nav>
-						<LinkButton to="/recipients">Recipients</LinkButton>
+						<ButtonLink to="/recipients">Recipients</ButtonLink>
 					</nav>
 				</div>
 			</header>

@@ -1,4 +1,4 @@
-import { LinkButton } from '#src/components/button.tsx'
+import { ButtonLink } from '#src/components/button.tsx'
 
 export function HomepageRoute() {
 	return (
@@ -12,9 +12,9 @@ export function HomepageRoute() {
 					love and gratitude.
 				</p>
 				<div>
-					<LinkButton to="/signup" variant="secondary">
+					<ButtonLink to="/signup" variant="secondary">
 						Get Started
-					</LinkButton>
+					</ButtonLink>
 				</div>
 			</div>
 			<div className="order-1 mx-16 flex justify-center md:order-2 md:mx-0">

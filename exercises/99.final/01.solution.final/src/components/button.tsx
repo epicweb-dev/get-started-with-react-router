@@ -27,6 +27,8 @@ const buttonStyles = cva(
 					'hover:bg-button/10',
 					'active:bg-button/20',
 				],
+			},
+			status: {
 				success: [
 					'bg-success-background text-success-foreground',
 					'hover:bg-success-background/90',
@@ -52,23 +54,31 @@ const buttonStyles = cva(
 
 export function Button({
 	variant,
+	status,
 	icon,
 	className,
 	...props
 }: ButtonHTMLAttributes<HTMLButtonElement> &
 	VariantProps<typeof buttonStyles>) {
 	return (
-		<button className={buttonStyles({ variant, icon, className })} {...props} />
+		<button
+			className={buttonStyles({ variant, status, icon, className })}
+			{...props}
+		/>
 	)
 }
 
-export function LinkButton({
+export function ButtonLink({
 	variant,
+	status,
 	icon,
 	className,
 	...props
 }: LinkProps & VariantProps<typeof buttonStyles>) {
 	return (
-		<Link className={buttonStyles({ variant, icon, className })} {...props} />
+		<Link
+			className={buttonStyles({ variant, status, icon, className })}
+			{...props}
+		/>
 	)
 }
