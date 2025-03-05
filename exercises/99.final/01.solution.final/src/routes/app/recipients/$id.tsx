@@ -1,7 +1,18 @@
+import CronExpressionParser from 'cron-parser'
 import { useParams, useRouteError } from 'react-router'
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.json'
+
+const DAY_NAMES = [
+	'Sunday',
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday',
+]
 
 export function RecipientRoute() {
 	const { id } = useParams()
@@ -9,22 +20,32 @@ export function RecipientRoute() {
 
 	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
 
+	const schedule = recipient?.schedule
+		? CronExpressionParser.parse(recipient.schedule.cron, {
+				tz: recipient.timeZone,
+			})
+		: null
+	const next = schedule?.next()
+	const dayOfWeek = next?.getDay() ?? 0
+
 	return (
 		<div className="flex min-h-0 flex-grow flex-col">
 			{/* Left sidebar (header on mobile) */}
 			<div className="border-border flex-shrink-0 border-b p-4">
 				<div className="flex items-center justify-between md:mb-3">
-					<h1 className="text-2xl font-bold md:text-3xl">{recipient.name}</h1>
+					<h2 className="text-2xl font-bold md:text-3xl">{recipient.name}</h2>
 
 					<ButtonLink to={`/recipients/${id}/edit`} icon variant="borderless">
-						<Icon name="Settings" size="lg" />
+						<Icon name="Pencil" size="lg" />
 					</ButtonLink>
 				</div>
 
 				<div className="mt-4 flex justify-between gap-4">
 					<div className="flex items-center gap-2">
 						<Icon name="Phone">
-							<span className="font-mono">{recipient.phone}</span>
+							<span className="font-mono">
+								{recipient.countryCode} {recipient.phone}
+							</span>
 						</Icon>
 					</div>
 
@@ -32,7 +53,7 @@ export function RecipientRoute() {
 						<Icon name="Clock">
 							<span>
 								{recipient.schedule ? (
-									`Every ${recipient.schedule.day} at ${recipient.schedule.time}`
+									`Every ${DAY_NAMES[dayOfWeek]} at ${next?.getHours()}:${next?.getMinutes()?.toString().padStart(2, '0')}`
 								) : (
 									<span className="text-foreground-alt">Schedule paused</span>
 								)}
@@ -42,7 +63,7 @@ export function RecipientRoute() {
 				</div>
 			</div>
 
-			<div className="flex min-h-0 flex-1 flex-grow flex-col">
+			<div className="flex min-h-0 flex-1 flex-col">
 				<div className="flex flex-grow flex-col gap-4 overflow-y-auto p-4 md:p-6">
 					{recipient.messages.map((message) => (
 						<div

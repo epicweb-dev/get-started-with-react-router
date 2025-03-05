@@ -3,9 +3,10 @@
 		{
 			"id": "1",
 			"name": "Bethany",
-			"phone": "(555) 123-4567",
-			"schedule": { "day": "Thu", "time": "10 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5551234567",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "10 10 * * 4" },
 			"messages": [
 				{
 					"id": "1",
@@ -36,9 +37,10 @@
 		{
 			"id": "2",
 			"name": "Mom",
-			"phone": "(555) 234-5678",
-			"schedule": { "day": "Wed", "time": "10 AM GMT+2" },
-			"messageCount": 0,
+			"countryCode": "+1",
+			"phone": "5552345678",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 10 * * 3" },
 			"messages": [
 				{
 					"id": "1",
@@ -57,9 +59,10 @@
 		{
 			"id": "3",
 			"name": "Dad",
-			"phone": "(555) 345-6789",
+			"countryCode": "+1",
+			"phone": "5553456789",
+			"timeZone": "America/Denver",
 			"schedule": null,
-			"messageCount": 3,
 			"messages": [
 				{
 					"id": "1",
@@ -84,9 +87,10 @@
 		{
 			"id": "4",
 			"name": "Emily",
-			"phone": "(555) 456-7890",
-			"schedule": { "day": "Mon", "time": "9 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5554567890",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 9 * * 1" },
 			"messages": [
 				{
 					"id": "1",
@@ -105,9 +109,10 @@
 		{
 			"id": "5",
 			"name": "Grandpa",
-			"phone": "(555) 567-8901",
-			"schedule": { "day": "Sun", "time": "11 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5555678901",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 11 * * 0" },
 			"messages": [
 				{
 					"id": "1",

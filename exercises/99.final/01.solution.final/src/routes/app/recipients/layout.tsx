@@ -46,7 +46,7 @@ export function RecipientsLayout() {
 						</NavLink>
 					))}
 				</div>
-				<div className="flex flex-1">
+				<div className="flex flex-1 overflow-auto">
 					<Outlet />
 				</div>
 			</div>

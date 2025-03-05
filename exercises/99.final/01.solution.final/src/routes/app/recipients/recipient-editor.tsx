@@ -1,3 +1,4 @@
+import { CronExpressionParser } from 'cron-parser'
 import { Button } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { type recipients } from '#src/data.json'
@@ -7,20 +8,17 @@ type Recipient = (typeof recipients)[number]
 export function RecipientEditor({
 	recipient,
 }: {
-	recipient?: Pick<Recipient, 'name' | 'phone' | 'schedule'>
+	recipient?: Pick<
+		Recipient,
+		'name' | 'id' | 'phone' | 'schedule' | 'countryCode' | 'timeZone'
+	>
 }) {
-	// Parse phone number into country code and number if recipient exists
-	const { countryCode, phoneNumber } = recipient?.phone
-		? parsePhoneNumber(recipient.phone)
-		: { countryCode: '', phoneNumber: '' }
-
-	// Convert schedule day to lowercase for select value
-	const scheduleDay = recipient?.schedule?.day.toLowerCase() ?? ''
-
-	// Convert time format from "10 AM GMT+2" to "10:00" format
-	const scheduleTime = recipient?.schedule?.time
-		? convertTo24Hour(recipient.schedule.time)
-		: ''
+	const schedule = recipient?.schedule
+		? CronExpressionParser.parse(recipient.schedule.cron, {
+				tz: recipient.timeZone,
+			})
+		: null
+	const next = schedule?.next()
 
 	return (
 		<form
@@ -52,7 +50,7 @@ export function RecipientEditor({
 						name="countryCode"
 						className="w-full rounded-lg border p-3"
 						required
-						defaultValue={countryCode}
+						defaultValue={recipient?.countryCode}
 					>
 						<option value="">Select Country</option>
 						<option value="+1">United States (+1)</option>
@@ -63,17 +61,17 @@ export function RecipientEditor({
 				</div>
 
 				<div>
-					<label htmlFor="phoneNumber" className="mb-2 block">
+					<label htmlFor="phone" className="mb-2 block">
 						Phone Number
 					</label>
 					<input
 						type="tel"
-						id="phoneNumber"
-						name="phoneNumber"
+						id="phone"
+						name="phone"
 						placeholder="123 456 7890"
 						className="w-full rounded-lg border p-3"
 						required
-						defaultValue={phoneNumber}
+						defaultValue={recipient?.phone}
 					/>
 				</div>
 			</div>
@@ -87,13 +85,13 @@ export function RecipientEditor({
 					name="timeZone"
 					className="w-full rounded-lg border p-3"
 					required
-					defaultValue="GMT+2"
+					defaultValue={recipient?.timeZone}
 				>
 					<option value="">Select Time Zone</option>
-					<option value="America/New_York">Eastern Time</option>
-					<option value="America/Chicago">Central Time</option>
-					<option value="America/Denver">Mountain Time</option>
-					<option value="America/Los_Angeles">Pacific Time</option>
+					<option value="America/New_York">America/New_York</option>
+					<option value="America/Chicago">America/Chicago</option>
+					<option value="America/Denver">America/Denver</option>
+					<option value="America/Los_Angeles">America/Los_Angeles</option>
 					{/* Add more time zones as needed */}
 				</select>
 			</div>
@@ -105,34 +103,42 @@ export function RecipientEditor({
 						name="scheduleDay"
 						className="w-full rounded-lg border p-3"
 						required
-						defaultValue={scheduleDay}
+						defaultValue={next?.getDay()}
 					>
 						<option value="">Select Day</option>
-						<option value="monday">Monday</option>
-						<option value="tuesday">Tuesday</option>
-						<option value="wednesday">Wednesday</option>
-						<option value="thursday">Thursday</option>
-						<option value="friday">Friday</option>
-						<option value="saturday">Saturday</option>
-						<option value="sunday">Sunday</option>
+						<option value="1">Monday</option>
+						<option value="2">Tuesday</option>
+						<option value="3">Wednesday</option>
+						<option value="4">Thursday</option>
+						<option value="5">Friday</option>
+						<option value="6">Saturday</option>
+						<option value="0">Sunday</option>
 					</select>
+					<div className="flex items-center gap-1">
+						<input
+							type="number"
+							name="scheduleHour"
+							className="w-full rounded-lg border p-3"
+							required
+							placeholder="HH"
+							min={0}
+							max={23}
+							defaultValue={next?.getHours().toString().padStart(2, '0')}
+						/>
 
-					<select
-						name="scheduleTime"
-						className="w-full rounded-lg border p-3"
-						required
-						defaultValue={scheduleTime}
-					>
-						<option value="">Select Time</option>
-						{Array.from({ length: 24 }, (_, i) => {
-							const hour = i.toString().padStart(2, '0')
-							return (
-								<option key={hour} value={`${hour}:00`}>
-									{`${hour}:00`}
-								</option>
-							)
-						})}
-					</select>
+						<span className="text-lg">:</span>
+
+						<input
+							type="number"
+							name="scheduleMinute"
+							className="w-full rounded-lg border p-3"
+							required
+							placeholder="MM"
+							min={0}
+							max={59}
+							defaultValue={next?.getMinutes().toString().padStart(2, '0')}
+						/>
+					</div>
 				</div>
 			</div>
 
@@ -147,27 +153,4 @@ export function RecipientEditor({
 			</Button>
 		</form>
 	)
-}
-
-function parsePhoneNumber(phone: string) {
-	// Simple parsing - assumes format like "(555) 123-4567"
-	const match = phone.match(/^\((\d{3})\) (\d{3})-(\d{4})$/)
-	if (!match) return { countryCode: '+1', phoneNumber: phone }
-	return {
-		countryCode: '+1', // Default to US
-		phoneNumber: `${match[2]}${match[3]}`,
-	}
-}
-
-function convertTo24Hour(time: string) {
-	// Convert "10 AM GMT+2" to "10:00"
-	const match = time.match(/(\d{1,2}) (AM|PM)/)
-	if (!match) return ''
-	let hour = parseInt(match[1])
-	const meridiem = match[2]
-
-	if (meridiem === 'PM' && hour !== 12) hour += 12
-	if (meridiem === 'AM' && hour === 12) hour = 0
-
-	return `${hour.toString().padStart(2, '0')}:00`
 }
