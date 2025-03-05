@@ -41,6 +41,24 @@
       "path": "exercises/02.linking/03.solution.custom-link"
     },
     {
+      "path": "exercises/03.nested-routes/01.problem.nested-routes"
+    },
+    {
+      "path": "exercises/03.nested-routes/01.solution.nested-routes"
+    },
+    {
+      "path": "exercises/03.nested-routes/02.problem.nested-layout"
+    },
+    {
+      "path": "exercises/03.nested-routes/02.solution.nested-layout"
+    },
+    {
+      "path": "exercises/03.nested-routes/03.problem.unnested-route"
+    },
+    {
+      "path": "exercises/03.nested-routes/03.solution.unnested-route"
+    },
+    {
       "path": "exercises/99.final/01.solution.final"
     }
   ]
