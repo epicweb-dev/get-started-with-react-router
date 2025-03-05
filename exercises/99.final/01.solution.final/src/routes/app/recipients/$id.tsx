@@ -104,7 +104,7 @@ export function RecipientRoute() {
 								</Button>
 							</div>
 							{/* break-words does not work for long strings of unbroken text */}
-							<p className="text-sm [word-break:break-word] md:text-base">
+							<p className="text-sm [word-break:break-word] whitespace-pre-line md:text-base">
 								{message.text}
 							</p>
 						</div>
