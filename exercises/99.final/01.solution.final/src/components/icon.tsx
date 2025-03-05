@@ -2,7 +2,7 @@ import { clsx } from 'clsx'
 import * as icons from './icons.tsx'
 
 const sizeClassName = {
-	font: 'w-[1em] h-[1em]',
+	font: 'w-[1rem] h-[1lh]',
 	xs: 'w-3 h-3',
 	sm: 'w-4 h-4',
 	md: 'w-5 h-5',
@@ -49,9 +49,7 @@ export function Icon({
 }) {
 	if (children) {
 		return (
-			<span
-				className={`inline-flex items-center ${childrenSizeClassName[size]}`}
-			>
+			<span className={`inline-flex ${childrenSizeClassName[size]}`}>
 				<Icon
 					name={name}
 					size={size}
@@ -72,7 +70,7 @@ export function Icon({
 
 	return (
 		<IconComponent
-			className={clsx(sizeClassName[size], className)}
+			className={clsx(sizeClassName[size], className, 'shrink-0')}
 			{...props}
 		/>
 	)
