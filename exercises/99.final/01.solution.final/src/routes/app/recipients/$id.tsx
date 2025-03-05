@@ -133,19 +133,25 @@ export function RecipientRoute() {
 				</div>
 
 				<div className="border-border flex-shrink-0 border-t p-4">
-					<div className="flex items-center gap-4">
-						<input
-							type="text"
+					<form
+						onSubmit={(e) => {
+							e.preventDefault()
+							e.currentTarget.reset()
+						}}
+						className="flex items-center gap-4"
+					>
+						<textarea
 							placeholder="Type your message..."
-							className="text-foreground-alt placeholder:text-foreground-alt/60 flex-1 rounded-lg px-4 py-3"
+							className="text-foreground-alt placeholder:text-foreground-alt/60 field-sizing-content max-h-[200px] min-h-[48px] flex-1 resize-none rounded-lg px-4 py-3"
+							rows={1}
 						/>
-						<Button className="hidden whitespace-nowrap md:block">
+						<Button type="submit" className="hidden whitespace-nowrap md:block">
 							Add to Queue
 						</Button>
-						<Button className="block md:hidden" icon>
+						<Button type="submit" className="block md:hidden" icon>
 							<Icon name="Plus" />
 						</Button>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
