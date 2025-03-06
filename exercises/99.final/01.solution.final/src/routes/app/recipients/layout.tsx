@@ -44,13 +44,15 @@ export function RecipientsLayout() {
 									</div>
 								)}
 							</NavLink>
-							{recipient.messages.every((m) => m.sentAt) ? (
+							{recipient.messages.some(
+								(m) => m.status === 'scheduled',
+							) ? null : (
 								<Icon
 									name="ExclamationCircle"
 									className="text-danger-foreground"
 									title="no messages scheduled"
 								/>
-							) : null}
+							)}
 						</div>
 					))}
 				</div>

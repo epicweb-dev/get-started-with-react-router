@@ -82,24 +82,7 @@ export function RecipientRoute() {
 												<span className="text-sm opacity-80 md:text-base">
 													Sent on{' '}
 													{message.sentAt
-														? new Date(message.sentAt).toLocaleDateString(
-																'en-US',
-																{
-																	weekday: 'short',
-																	month: 'short',
-																	day: 'numeric',
-																	year: 'numeric',
-																},
-															)
-														: 'Unknown date'}
-												</span>
-											</Icon>
-										) : (
-											<Icon name="Clock">
-												<span className="text-sm opacity-80 md:text-base">
-													Scheduled for{' '}
-													{nextScheduledTime
-														? nextScheduledTime.toLocaleDateString('en-US', {
+														? message.sentAt.toLocaleDateString('en-US', {
 																weekday: 'short',
 																month: 'short',
 																day: 'numeric',
@@ -107,6 +90,24 @@ export function RecipientRoute() {
 															})
 														: 'Unknown date'}
 												</span>
+											</Icon>
+										) : (
+											<Icon name="Clock">
+												{nextScheduledTime ? (
+													<span className="text-sm opacity-80 md:text-base">
+														Scheduled for{' '}
+														{nextScheduledTime.toLocaleDateString('en-US', {
+															weekday: 'short',
+															month: 'short',
+															day: 'numeric',
+															year: 'numeric',
+														})}
+													</span>
+												) : (
+													<span className="text-sm opacity-80 md:text-base">
+														Schedule paused
+													</span>
+												)}
 											</Icon>
 										)}
 									</div>
@@ -124,7 +125,7 @@ export function RecipientRoute() {
 								</div>
 								{/* break-words does not work for long strings of unbroken text */}
 								<p className="text-sm [word-break:break-word] whitespace-pre-line md:text-base">
-									{message.text}
+									{message.content}
 								</p>
 							</div>
 						)

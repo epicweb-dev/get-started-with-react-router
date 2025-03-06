@@ -6,26 +6,26 @@
 			"countryCode": "+1",
 			"phone": "5551234567",
 			"timeZone": "America/Denver",
-			"schedule": { "cron": "10 10 * * 4" },
+			"schedule": { "cron": "10 10 * * 1,3,5" },
 			"messages": [
 				{
 					"id": "1",
-					"text": "Thank you for being my partner in every adventure and my comfort in every storm.\n\nI love you more than you know.",
+					"content": "Thank you for being my partner in every adventure and my comfort in every storm.\n\nI love you more than you know.",
 					"sentAt": "2044-06-06T10:00:00Z"
 				},
 				{
 					"id": "2",
-					"text": "You are my best friend, my confidant, and my greatest support. Thank you for being you.",
+					"content": "You are my best friend, my confidant, and my greatest support. Thank you for being you.",
 					"sentAt": "2044-06-13T10:00:00Z"
 				},
 				{
 					"id": "3",
-					"text": "Thank you for all the sacrifices you make for our family. Your hard work and dedication mean the world to me.",
+					"content": "Thank you for all the sacrifices you make for our family. Your hard work and dedication mean the world to me.",
 					"sentAt": null
 				},
 				{
 					"id": "4",
-					"text": "Thank you for being my rock and always supporting me. I am grateful for your unwavering love.",
+					"content": "Thank you for being my rock and always supporting me. I am grateful for your unwavering love.",
 					"sentAt": null
 				}
 			]
@@ -40,12 +40,12 @@
 			"messages": [
 				{
 					"id": "1",
-					"text": "Happy Mother's Day! Thank you for all the love, guidance, and support you've given me throughout my life.",
+					"content": "Happy Mother's Day! Thank you for all the love, guidance, and support you've given me throughout my life.",
 					"sentAt": "2044-05-12T10:00:00Z"
 				},
 				{
 					"id": "2",
-					"text": "Just wanted to let you know I'm thinking of you and I love you. Your strength and wisdom inspire me every day.",
+					"content": "Just wanted to let you know I'm thinking of you and I love you. Your strength and wisdom inspire me every day.",
 					"sentAt": null
 				}
 			]
@@ -60,12 +60,12 @@
 			"messages": [
 				{
 					"id": "1",
-					"text": "Happy Father's Day! Thank you for being the best role model and for always believing in me.",
+					"content": "Happy Father's Day! Thank you for being the best role model and for always believing in me.",
 					"sentAt": "2044-06-16T10:00:00Z"
 				},
 				{
 					"id": "2",
-					"text": "I really appreciate all the life lessons you've taught me. You've shaped who I am today.",
+					"content": "I really appreciate all the life lessons you've taught me. You've shaped who I am today.",
 					"sentAt": "2044-06-17T10:00:00Z"
 				}
 			]
@@ -80,12 +80,12 @@
 			"messages": [
 				{
 					"id": "1",
-					"text": "Happy birthday to my amazing sister! Wishing you all the joy and success in the world.",
+					"content": "Happy birthday to my amazing sister! Wishing you all the joy and success in the world.",
 					"sentAt": "2044-05-20T09:00:00Z"
 				},
 				{
 					"id": "2",
-					"text": "Can't wait for our weekend getaway! It's going to be so much fun catching up.",
+					"content": "Can't wait for our weekend getaway! It's going to be so much fun catching up.",
 					"sentAt": null
 				}
 			]
@@ -100,12 +100,12 @@
 			"messages": [
 				{
 					"id": "1",
-					"text": "Thank you for all your wonderful stories and the delicious recipes you've shared with me. They keep our family traditions alive.",
+					"content": "Thank you for all your wonderful stories and the delicious recipes you've shared with me. They keep our family traditions alive.",
 					"sentAt": "2044-06-02T11:00:00Z"
 				},
 				{
 					"id": "2",
-					"text": "Looking forward to Sunday lunch together. Your cooking always makes everything better.",
+					"content": "Looking forward to Sunday lunch together. Your cooking always makes everything better.",
 					"sentAt": null
 				}
 			]

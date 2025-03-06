@@ -48,8 +48,15 @@ export function Icon({
 }) {
 	if (children) {
 		return (
-			<span className={`inline-flex ${childrenSizeClassName[size]}`}>
-				<Icon name={name} size={size} className={className} {...props} />
+			<span
+				className={`inline-flex items-center ${childrenSizeClassName[size]}`}
+			>
+				<Icon
+					name={name}
+					size={size}
+					className={clsx(className, 'flex-none self-start')}
+					{...props}
+				/>
 				{children}
 			</span>
 		)

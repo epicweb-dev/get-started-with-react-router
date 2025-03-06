@@ -98,12 +98,15 @@ export function RecipientEditor({
 				<label className="mb-2 block">Create a Schedule</label>
 				<div className="grid grid-cols-2 gap-4">
 					<select
-						name="scheduleDay"
+						name="scheduleDays"
+						multiple
 						className="w-full rounded-lg border p-3"
 						required
-						defaultValue={recipient?.nextScheduledAt?.getDay()}
+						defaultValue={recipient?.schedule?.cron
+							?.split(' ')[4]
+							.split(',')
+							.map(String)}
 					>
-						<option value="">Select Day</option>
 						<option value="1">Monday</option>
 						<option value="2">Tuesday</option>
 						<option value="3">Wednesday</option>
@@ -148,7 +151,10 @@ export function RecipientEditor({
 
 			<div className="mt-2 flex items-center gap-2">
 				<Icon name="Info">
-					<p>Your messages will arrive every week at this day and time</p>
+					<p>
+						Your messages will arrive every week on the selected days at this
+						time
+					</p>
 				</Icon>
 			</div>
 
