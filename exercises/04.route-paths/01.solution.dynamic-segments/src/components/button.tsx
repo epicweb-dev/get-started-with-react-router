@@ -3,7 +3,7 @@ import { type ButtonHTMLAttributes } from 'react'
 import { Link, type LinkProps } from 'react-router'
 
 const buttonStyles = cva(
-	'rounded-full font-medium no-underline transition-colors hover:no-underline focus:no-underline',
+	'flex items-center justify-center rounded-full font-medium no-underline transition-colors hover:no-underline focus:no-underline',
 	{
 		variants: {
 			variant: {

@@ -12,8 +12,8 @@ export const router = createBrowserRouter(
 		// 🐨 turn this fragment into a <Route> element with the element prop
 		// set to <MarketingLayout />
 		<>
-			<Route path="/" element={<HomepageRoute />} />
-			<Route path="/about" element={<AboutRoute />} />
+			<Route path="/" Component={HomepageRoute} />
+			<Route path="/about" Component={AboutRoute} />
 		</>,
 	),
 )

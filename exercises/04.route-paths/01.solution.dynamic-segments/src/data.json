@@ -1,125 +1,112 @@
 {
 	"recipients": [
 		{
-			"id": "1",
+			"id": "clh2x8k9m4n5p6q7r8s9t0u1",
 			"name": "Bethany",
-			"phone": "(555) 123-4567",
-			"schedule": { "day": "Thu", "time": "10 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5551234567",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "10 10 * * 1,3,5" },
 			"messages": [
 				{
-					"id": "1",
-					"text": "Thank you for being my partner in every adventure and my comfort in every storm. I love you more than you know.",
-					"sentAt": "2044-06-06T10:00:00Z",
-					"status": "sent"
+					"id": "clm1n2o3p4q5r6s7t8u9v0w1",
+					"content": "Thank you for being my partner in every adventure and my comfort in every storm.\n\nI love you more than you know.",
+					"sentAt": "2044-06-06T10:00:00Z"
 				},
 				{
-					"id": "2",
-					"text": "You are my best friend, my confidant, and my greatest support. Thank you for being you.",
-					"sentAt": "2044-06-13T10:00:00Z",
-					"status": "sent"
+					"id": "clx2y3z4a5b6c7d8e9f0g1h2",
+					"content": "You are my best friend, my confidant, and my greatest support. Thank you for being you.",
+					"sentAt": "2044-06-13T10:00:00Z"
 				},
 				{
-					"id": "3",
-					"text": "Thank you for all the sacrifices you make for our family. Your hard work and dedication mean the world to me.",
-					"scheduledFor": "2044-06-20T10:00:00Z",
-					"status": "scheduled"
+					"id": "cli3j4k5l6m7n8o9p0q1r2s3",
+					"content": "Thank you for all the sacrifices you make for our family. Your hard work and dedication mean the world to me.",
+					"sentAt": null
 				},
 				{
-					"id": "4",
-					"text": "Thank you for being my rock and always supporting me. I am grateful for your unwavering love.",
-					"scheduledFor": "2044-06-27T10:00:00Z",
-					"status": "scheduled"
+					"id": "clt4u5v6w7x8y9z0a1b2c3d4",
+					"content": "Thank you for being my rock and always supporting me. I am grateful for your unwavering love.",
+					"sentAt": null
 				}
 			]
 		},
 		{
-			"id": "2",
+			"id": "clb5c6d7e8f9g0h1i2j3k4l5",
 			"name": "Mom",
-			"phone": "(555) 234-5678",
-			"schedule": { "day": "Wed", "time": "10 AM GMT+2" },
-			"messageCount": 0,
+			"countryCode": "+1",
+			"phone": "5552345678",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 10 * * 3" },
 			"messages": [
 				{
-					"id": "1",
-					"text": "Happy Mother's Day! Thank you for all the love, guidance, and support you've given me throughout my life.",
-					"sentAt": "2044-05-12T10:00:00Z",
-					"status": "sent"
+					"id": "clm6n7o8p9q0r1s2t3u4v5w6",
+					"content": "Happy Mother's Day! Thank you for all the love, guidance, and support you've given me throughout my life.",
+					"sentAt": "2044-05-12T10:00:00Z"
 				},
 				{
-					"id": "2",
-					"text": "Just wanted to let you know I'm thinking of you and I love you. Your strength and wisdom inspire me every day.",
-					"scheduledFor": "2044-06-19T10:00:00Z",
-					"status": "scheduled"
+					"id": "clx7y8z9a0b1c2d3e4f5g6h7",
+					"content": "Just wanted to let you know I'm thinking of you and I love you. Your strength and wisdom inspire me every day.",
+					"sentAt": null
 				}
 			]
 		},
 		{
-			"id": "3",
+			"id": "cli8j9k0l1m2n3o4p5q6r7s8",
 			"name": "Dad",
-			"phone": "(555) 345-6789",
+			"countryCode": "+1",
+			"phone": "5553456789",
+			"timeZone": "America/Denver",
 			"schedule": null,
-			"messageCount": 3,
 			"messages": [
 				{
-					"id": "1",
-					"text": "Happy Father's Day! Thank you for being the best role model and for always believing in me.",
-					"sentAt": "2044-06-16T10:00:00Z",
-					"status": "sent"
+					"id": "clt9u0v1w2x3y4z5a6b7c8d9",
+					"content": "Happy Father's Day! Thank you for being the best role model and for always believing in me.",
+					"sentAt": "2044-06-16T10:00:00Z"
 				},
 				{
-					"id": "2",
-					"text": "I really appreciate all the life lessons you've taught me. You've shaped who I am today.",
-					"sentAt": "2044-06-17T10:00:00Z",
-					"status": "sent"
-				},
-				{
-					"id": "3",
-					"text": "Looking forward to our fishing trip next month. Those moments mean the world to me.",
-					"scheduledFor": "2044-07-01T10:00:00Z",
-					"status": "scheduled"
+					"id": "cle0f1g2h3i4j5k6l7m8n9o0",
+					"content": "I really appreciate all the life lessons you've taught me. You've shaped who I am today.",
+					"sentAt": "2044-06-17T10:00:00Z"
 				}
 			]
 		},
 		{
-			"id": "4",
+			"id": "clp1q2r3s4t5u6v7w8x9y0z1",
 			"name": "Emily",
-			"phone": "(555) 456-7890",
-			"schedule": { "day": "Mon", "time": "9 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5554567890",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 9 * * 1" },
 			"messages": [
 				{
-					"id": "1",
-					"text": "Happy birthday to my amazing sister! Wishing you all the joy and success in the world.",
-					"sentAt": "2044-05-20T09:00:00Z",
-					"status": "sent"
+					"id": "cla2b3c4d5e6f7g8h9i0j1k2",
+					"content": "Happy birthday to my amazing sister! Wishing you all the joy and success in the world.",
+					"sentAt": "2044-05-20T09:00:00Z"
 				},
 				{
-					"id": "2",
-					"text": "Can't wait for our weekend getaway! It's going to be so much fun catching up.",
-					"scheduledFor": "2044-06-21T09:00:00Z",
-					"status": "scheduled"
+					"id": "cll3m4n5o6p7q8r9s0t1u2v3",
+					"content": "Can't wait for our weekend getaway! It's going to be so much fun catching up.",
+					"sentAt": null
 				}
 			]
 		},
 		{
-			"id": "5",
+			"id": "clw4x5y6z7a8b9c0d1e2f3g4",
 			"name": "Grandpa",
-			"phone": "(555) 567-8901",
-			"schedule": { "day": "Sun", "time": "11 AM GMT+2" },
-			"messageCount": 2,
+			"countryCode": "+1",
+			"phone": "5555678901",
+			"timeZone": "America/Denver",
+			"schedule": { "cron": "0 11 * * 0" },
 			"messages": [
 				{
-					"id": "1",
-					"text": "Thank you for all your wonderful stories and the delicious recipes you've shared with me. They keep our family traditions alive.",
-					"sentAt": "2044-06-02T11:00:00Z",
-					"status": "sent"
+					"id": "clh5i6j7k8l9m0n1o2p3q4r5",
+					"content": "Thank you for all your wonderful stories and the delicious recipes you've shared with me. They keep our family traditions alive.",
+					"sentAt": "2044-06-02T11:00:00Z"
 				},
 				{
-					"id": "2",
-					"text": "Looking forward to Sunday lunch together. Your cooking always makes everything better.",
-					"scheduledFor": "2044-06-23T11:00:00Z",
-					"status": "scheduled"
+					"id": "cls6t7u8v9w0x1y2z3a4b5c6",
+					"content": "Looking forward to Sunday lunch together. Your cooking always makes everything better.",
+					"sentAt": null
 				}
 			]
 		}

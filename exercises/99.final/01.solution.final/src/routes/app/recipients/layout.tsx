@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { NavLink, Outlet } from 'react-router'
+import { Link, NavLink, Outlet } from 'react-router'
 import { ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.ts'
@@ -8,7 +8,14 @@ export function RecipientsLayout() {
 	return (
 		<div className="container mx-auto flex min-h-0 flex-grow flex-col px-4 pt-4 md:px-8 md:pt-8">
 			<div className="mb-8 flex items-center justify-between">
-				<h1 className="text-4xl font-bold">Recipients</h1>
+				<h1 className="text-4xl font-bold">
+					<Link
+						to="."
+						className="text-foreground hover:no-underline focus:no-underline"
+					>
+						Recipients
+					</Link>
+				</h1>
 				<ButtonLink to="new" className="hidden items-center gap-2 md:flex">
 					<Icon name="Plus">Add New Recipient</Icon>
 				</ButtonLink>

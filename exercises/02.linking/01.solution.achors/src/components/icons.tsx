@@ -30,6 +30,20 @@ export function ArrowRightIcon({ title, ...props }: IconProps) {
 	)
 }
 
+export function ArrowDownIcon({ title, ...props }: IconProps) {
+	return (
+		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth={2}
+				d="M19 9l-7 7-7-7"
+			/>
+		</svg>
+	)
+}
+
 export function PhoneIcon({ title, ...props }: IconProps) {
 	return (
 		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
@@ -143,6 +157,34 @@ export function InfoIcon({ title, ...props }: IconProps) {
 				strokeLinejoin="round"
 				strokeWidth={2}
 				d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+			/>
+		</svg>
+	)
+}
+
+export function PencilIcon({ title, ...props }: IconProps) {
+	return (
+		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth={2}
+				d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+			/>
+		</svg>
+	)
+}
+
+export function ExclamationCircleIcon({ title, ...props }: IconProps) {
+	return (
+		<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+			{title ? <title>{title}</title> : null}
+			<path
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth={2}
+				d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 			/>
 		</svg>
 	)

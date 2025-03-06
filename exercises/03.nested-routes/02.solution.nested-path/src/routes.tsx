@@ -9,9 +9,9 @@ import { MarketingLayout } from './routes/app/marketing/layout.tsx'
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<MarketingLayout />}>
-			<Route index element={<HomepageRoute />} />
-			<Route path="about" element={<AboutRoute />} />
+		<Route path="/" Component={MarketingLayout}>
+			<Route index Component={HomepageRoute} />
+			<Route path="about" Component={AboutRoute} />
 		</Route>,
 	),
 )

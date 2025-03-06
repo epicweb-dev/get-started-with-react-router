@@ -11,11 +11,11 @@ export const router = createBrowserRouter(
 	createRoutesFromElements(
 		// 🐨 set the path for the MarketingLayout to "/"
 		// 💯 play around with setting the path to "/app" and see how that affects things
-		<Route element={<MarketingLayout />}>
+		<Route Component={MarketingLayout}>
 			{/* 🐨 remove the path from the HomepageRoute and add the index prop */}
-			<Route path="/" element={<HomepageRoute />} />
+			<Route path="/" Component={HomepageRoute} />
 			{/* 🐨 remove the "/" from about to make it relative to the parent route */}
-			<Route path="/about" element={<AboutRoute />} />
+			<Route path="/about" Component={AboutRoute} />
 		</Route>,
 	),
 )

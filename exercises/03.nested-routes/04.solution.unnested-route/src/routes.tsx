@@ -7,22 +7,25 @@ import { AppLayout } from './routes/app/layout.tsx'
 import { AboutRoute } from './routes/app/marketing/about.tsx'
 import { HomepageRoute } from './routes/app/marketing/homepage.tsx'
 import { MarketingLayout } from './routes/app/marketing/layout.tsx'
-import { NewRecipientRoute } from './routes/app/new-recipient.tsx'
-import { RecipientsRoute } from './routes/app/recipients.tsx'
+import { RecipientIndexRoute } from './routes/app/recipients/index.tsx'
+import { RecipientsLayout } from './routes/app/recipients/layout.tsx'
+import { NewRecipientRoute } from './routes/app/recipients/new.tsx'
 import { SignupRoute } from './routes/signup.tsx'
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/" element={<AppLayout />}>
-				<Route element={<MarketingLayout />}>
-					<Route index element={<HomepageRoute />} />
-					<Route path="about" element={<AboutRoute />} />
+			<Route path="/" Component={AppLayout}>
+				<Route Component={MarketingLayout}>
+					<Route index Component={HomepageRoute} />
+					<Route path="about" Component={AboutRoute} />
 				</Route>
-				<Route path="recipients" element={<RecipientsRoute />} />
-				<Route path="recipients/new" element={<NewRecipientRoute />} />
+				<Route path="recipients" Component={RecipientsLayout}>
+					<Route index Component={RecipientIndexRoute} />
+					<Route path="new" Component={NewRecipientRoute} />
+				</Route>
 			</Route>
-			<Route path="/signup" element={<SignupRoute />} />
+			<Route path="/signup" Component={SignupRoute} />
 		</>,
 	),
 )

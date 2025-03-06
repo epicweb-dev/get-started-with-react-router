@@ -9,8 +9,8 @@ import { HomepageRoute } from './routes/app/marketing/homepage.tsx'
 export const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/" element={<HomepageRoute />} />
-			<Route path="/about" element={<AboutRoute />} />
+			<Route path="/" Component={HomepageRoute} />
+			<Route path="/about" Component={AboutRoute} />
 		</>,
 	),
 )
