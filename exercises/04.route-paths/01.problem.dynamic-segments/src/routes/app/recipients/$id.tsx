@@ -1,4 +1,4 @@
-import { useParams } from 'react-router'
+// 🐨 import the useParams hook from react-router
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.ts'
@@ -14,7 +14,8 @@ const DAY_NAMES = [
 ]
 
 export function RecipientRoute() {
-	const { id } = useParams()
+	// 🐨 use the useParams hook to get the id from the URL
+	const id = 'TODO'
 	const recipient = recipients.find((r) => r.id === id)
 
 	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
