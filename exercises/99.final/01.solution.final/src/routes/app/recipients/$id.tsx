@@ -134,6 +134,7 @@ export function RecipientRoute() {
 
 				<div className="border-border flex-shrink-0 border-t p-4">
 					<form
+						key={recipient.id}
 						onSubmit={(e) => {
 							e.preventDefault()
 							e.currentTarget.reset()
@@ -141,7 +142,9 @@ export function RecipientRoute() {
 						className="flex items-center gap-4"
 					>
 						<textarea
-							placeholder="Type your message..."
+							autoFocus
+							name="content"
+							placeholder={`Type your message to ${recipient.name}...`}
 							className="text-foreground-alt placeholder:text-foreground-alt/60 field-sizing-content max-h-[200px] min-h-[48px] flex-1 resize-none rounded-lg px-4 py-3"
 							rows={1}
 						/>

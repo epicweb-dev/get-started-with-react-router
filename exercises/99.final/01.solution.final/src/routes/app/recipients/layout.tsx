@@ -9,52 +9,82 @@ export function RecipientsLayout() {
 		<div className="container mx-auto flex min-h-0 flex-grow flex-col px-4 pt-4 md:px-8 md:pt-8">
 			<div className="mb-8 flex items-center justify-between">
 				<h1 className="text-4xl font-bold">Recipients</h1>
-				<ButtonLink
-					to="/recipients/new"
-					className="hidden items-center gap-2 md:flex"
-				>
+				<ButtonLink to="new" className="hidden items-center gap-2 md:flex">
 					<Icon name="Plus">Add New Recipient</Icon>
 				</ButtonLink>
-				<ButtonLink icon to="/recipients/new" className="md:hidden">
+				<ButtonLink icon to="new" className="md:hidden">
 					<Icon name="Plus" />
 				</ButtonLink>
 			</div>
 
-			<div className="bg-background-alt flex min-h-0 flex-1 flex-col md:flex-row">
-				<div className="flex max-h-32 min-h-32 flex-col gap-4 overflow-auto border-b-2 py-4 pr-4 pl-1 md:max-h-none md:min-w-32 md:border-r md:border-b-0">
-					{recipients.map((recipient) => (
-						<div key={recipient.id} className="flex items-center gap-2">
-							<NavLink
-								to={`/recipients/${recipient.id}`}
-								className={({ isActive }) =>
-									clsx('text-xl', isActive ? 'underline' : '')
-								}
-							>
-								{({ isActive }) => (
-									<div className="flex items-center gap-1">
+			<div className="bg-background-alt flex min-h-0 flex-1 flex-col">
+				<div className="flex flex-col gap-4 overflow-visible border-b-2 py-4 pr-4 pl-1">
+					<details
+						className="relative"
+						onBlur={(e) => {
+							const relatedTarget = e.relatedTarget
+							if (!e.currentTarget.contains(relatedTarget)) {
+								e.currentTarget.removeAttribute('open')
+							}
+						}}
+						onKeyDown={(e) => {
+							if (e.key === 'Escape') {
+								e.currentTarget.removeAttribute('open')
+							}
+						}}
+					>
+						<summary className="hover:bg-background-alt-hover cursor-pointer px-2 py-1">
+							Select recipient
+						</summary>
+						<div className="bg-background-alt absolute top-full left-0 z-10 mt-1 max-w-full min-w-64 border p-2 shadow-lg">
+							{recipients.map((recipient) => (
+								<div key={recipient.id} className="flex items-center gap-2">
+									<NavLink
+										to={recipient.id}
+										className={({ isActive }) =>
+											clsx(
+												'overflow-x-auto text-xl',
+												isActive ? 'underline' : '',
+											)
+										}
+										onClick={(e) => {
+											e.currentTarget
+												.closest('details')
+												?.removeAttribute('open')
+										}}
+									>
+										{({ isActive }) => (
+											<div className="flex items-center gap-1">
+												<Icon
+													name="ArrowRight"
+													size="sm"
+													className={clsx(
+														isActive ? 'opacity-100' : 'opacity-0',
+														'transition-opacity',
+													)}
+												/>
+												{recipient.name}
+											</div>
+										)}
+									</NavLink>
+									{recipient.messages.some(
+										(m) => m.status === 'scheduled',
+									) ? null : (
 										<Icon
-											name="ArrowRight"
-											size="sm"
-											className={clsx(
-												isActive ? 'opacity-100' : 'opacity-0',
-												'transition-opacity',
-											)}
+											name="ExclamationCircle"
+											className="text-danger-foreground"
+											title="no messages scheduled"
 										/>
-										{recipient.name}
-									</div>
-								)}
-							</NavLink>
-							{recipient.messages.some(
-								(m) => m.status === 'scheduled',
-							) ? null : (
-								<Icon
-									name="ExclamationCircle"
-									className="text-danger-foreground"
-									title="no messages scheduled"
-								/>
+									)}
+								</div>
+							))}
+							{recipients.length === 0 && (
+								<div className="bg-warning-background text-warning-foreground px-4 py-2 text-sm">
+									No recipients found. Add one to get started.
+								</div>
 							)}
 						</div>
-					))}
+					</details>
 				</div>
 				<div className="flex flex-1 overflow-auto">
 					<Outlet />
