@@ -24,7 +24,13 @@ export function RecipientsLayout() {
 						onBlur={(e) => {
 							const relatedTarget = e.relatedTarget
 							if (!e.currentTarget.contains(relatedTarget)) {
-								e.currentTarget.removeAttribute('open')
+								const el = e.currentTarget
+								// seems to cause the browser to crash if relatedTarget is null
+								// (like clicking within the details, but not on anything in particular)
+								// so we wrap it in a requestAnimationFrame and it closes fine.
+								requestAnimationFrame(() => {
+									el.removeAttribute('open')
+								})
 							}
 						}}
 						onKeyDown={(e) => {
@@ -38,45 +44,42 @@ export function RecipientsLayout() {
 						</summary>
 						<div className="bg-background-alt absolute top-full left-0 z-10 mt-1 max-w-full min-w-64 border p-2 shadow-lg">
 							{recipients.map((recipient) => (
-								<div key={recipient.id} className="flex items-center gap-2">
-									<NavLink
-										to={recipient.id}
-										className={({ isActive }) =>
-											clsx(
-												'overflow-x-auto text-xl',
-												isActive ? 'underline' : '',
-											)
-										}
-										onClick={(e) => {
-											e.currentTarget
-												.closest('details')
-												?.removeAttribute('open')
-										}}
-									>
-										{({ isActive }) => (
-											<div className="flex items-center gap-1">
+								<NavLink
+									key={recipient.id}
+									to={recipient.id}
+									className={({ isActive }) =>
+										clsx(
+											'hover:bg-background flex items-center gap-2 overflow-x-auto text-xl',
+											isActive ? 'underline' : '',
+										)
+									}
+									onClick={(e) => {
+										e.currentTarget.closest('details')?.removeAttribute('open')
+									}}
+								>
+									{({ isActive }) => (
+										<div className="flex items-center gap-1">
+											<Icon
+												name="ArrowRight"
+												size="sm"
+												className={clsx(
+													isActive ? 'opacity-100' : 'opacity-0',
+													'transition-opacity',
+												)}
+											/>
+											{recipient.name}
+											{recipient.messages.some(
+												(m) => m.status === 'scheduled',
+											) ? null : (
 												<Icon
-													name="ArrowRight"
-													size="sm"
-													className={clsx(
-														isActive ? 'opacity-100' : 'opacity-0',
-														'transition-opacity',
-													)}
+													name="ExclamationCircle"
+													className="text-danger-foreground"
+													title="no messages scheduled"
 												/>
-												{recipient.name}
-											</div>
-										)}
-									</NavLink>
-									{recipient.messages.some(
-										(m) => m.status === 'scheduled',
-									) ? null : (
-										<Icon
-											name="ExclamationCircle"
-											className="text-danger-foreground"
-											title="no messages scheduled"
-										/>
+											)}
+										</div>
 									)}
-								</div>
+								</NavLink>
 							))}
 							{recipients.length === 0 && (
 								<div className="bg-warning-background text-warning-foreground px-4 py-2 text-sm">

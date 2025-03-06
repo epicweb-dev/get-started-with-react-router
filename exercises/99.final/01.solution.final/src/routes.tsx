@@ -21,29 +21,29 @@ import { SignupRoute } from './routes/signup.tsx'
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route errorElement={<UnknownErrorBoundary />}>
-			<Route path="/" element={<AppLayout />}>
-				<Route element={<MarketingLayout />}>
-					<Route index element={<HomepageRoute />} />
-					<Route path="about" element={<AboutRoute />} />
+		<Route ErrorBoundary={UnknownErrorBoundary}>
+			<Route path="/" Component={AppLayout}>
+				<Route Component={MarketingLayout}>
+					<Route index Component={HomepageRoute} />
+					<Route path="about" Component={AboutRoute} />
 				</Route>
-				<Route path="recipients" element={<RecipientsLayout />}>
-					<Route index element={<RecipientIndexRoute />} />
-					<Route path="new" element={<NewRecipientRoute />} />
+				<Route path="recipients" Component={RecipientsLayout}>
+					<Route index Component={RecipientIndexRoute} />
+					<Route path="new" Component={NewRecipientRoute} />
 					<Route
 						path=":id"
-						element={<RecipientRoute />}
-						errorElement={<RecipientErrorBoundary />}
+						Component={RecipientRoute}
+						ErrorBoundary={RecipientErrorBoundary}
 					/>
 					<Route
 						path=":id/edit"
-						element={<RecipientEditRoute />}
-						errorElement={<RecipientErrorBoundary />}
+						Component={RecipientEditRoute}
+						ErrorBoundary={RecipientErrorBoundary}
 					/>
 				</Route>
 			</Route>
-			<Route path="/signup" element={<SignupRoute />} />
-			<Route path="*" element={<NotFoundRoute />} />
+			<Route path="/signup" Component={SignupRoute} />
+			<Route path="*" Component={NotFoundRoute} />
 		</Route>,
 	),
 )
