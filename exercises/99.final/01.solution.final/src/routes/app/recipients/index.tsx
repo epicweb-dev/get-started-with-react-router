@@ -1,6 +1,6 @@
 import { ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
-import { recipients } from '#src/data.json'
+import { recipients } from '#src/data.ts'
 
 export function RecipientIndexRoute() {
 	return (

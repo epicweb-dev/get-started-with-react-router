@@ -40,7 +40,6 @@ export function Icon({
 	name,
 	size = 'font',
 	className,
-	title,
 	children,
 	...props
 }: icons.IconProps & {
@@ -50,13 +49,7 @@ export function Icon({
 	if (children) {
 		return (
 			<span className={`inline-flex ${childrenSizeClassName[size]}`}>
-				<Icon
-					name={name}
-					size={size}
-					className={className}
-					title={title}
-					{...props}
-				/>
+				<Icon name={name} size={size} className={className} {...props} />
 				{children}
 			</span>
 		)

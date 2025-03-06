@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import { recipients } from '#src/data.json'
+import { recipients } from '#src/data.ts'
 import { RecipientEditor } from './recipient-editor.tsx'
 
 export function RecipientEditRoute() {

@@ -1,7 +1,6 @@
-import { CronExpressionParser } from 'cron-parser'
 import { Button } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
-import { type recipients } from '#src/data.json'
+import { type recipients } from '#src/data.ts'
 
 type Recipient = (typeof recipients)[number]
 
@@ -10,16 +9,15 @@ export function RecipientEditor({
 }: {
 	recipient?: Pick<
 		Recipient,
-		'name' | 'id' | 'phone' | 'schedule' | 'countryCode' | 'timeZone'
+		| 'name'
+		| 'id'
+		| 'phone'
+		| 'schedule'
+		| 'countryCode'
+		| 'timeZone'
+		| 'nextScheduledAt'
 	>
 }) {
-	const schedule = recipient?.schedule
-		? CronExpressionParser.parse(recipient.schedule.cron, {
-				tz: recipient.timeZone,
-			})
-		: null
-	const next = schedule?.next()
-
 	return (
 		<form
 			onSubmit={(e) => e.preventDefault()}
@@ -103,7 +101,7 @@ export function RecipientEditor({
 						name="scheduleDay"
 						className="w-full rounded-lg border p-3"
 						required
-						defaultValue={next?.getDay()}
+						defaultValue={recipient?.nextScheduledAt?.getDay()}
 					>
 						<option value="">Select Day</option>
 						<option value="1">Monday</option>
@@ -123,7 +121,10 @@ export function RecipientEditor({
 							placeholder="HH"
 							min={0}
 							max={23}
-							defaultValue={next?.getHours().toString().padStart(2, '0')}
+							defaultValue={recipient?.nextScheduledAt
+								?.getHours()
+								.toString()
+								.padStart(2, '0')}
 						/>
 
 						<span className="text-lg">:</span>
@@ -136,7 +137,10 @@ export function RecipientEditor({
 							placeholder="MM"
 							min={0}
 							max={59}
-							defaultValue={next?.getMinutes().toString().padStart(2, '0')}
+							defaultValue={recipient?.nextScheduledAt
+								?.getMinutes()
+								.toString()
+								.padStart(2, '0')}
 						/>
 					</div>
 				</div>
@@ -148,9 +152,11 @@ export function RecipientEditor({
 				</Icon>
 			</div>
 
-			<Button type="submit" status="success">
-				<Icon name="Plus">Save Recipient</Icon>
-			</Button>
+			<div className="flex flex-col items-center gap-2 md:flex-row">
+				<Button type="submit" status="success" className="w-full">
+					<Icon name="Check">Save Recipient</Icon>
+				</Button>
+			</div>
 		</form>
 	)
 }
