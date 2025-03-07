@@ -1,4 +1,5 @@
-import { useParams, useRouteError } from 'react-router'
+import { matchSorter } from 'match-sorter'
+import { useParams, useRouteError, useSearchParams } from 'react-router'
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.ts'
@@ -15,9 +16,25 @@ const DAY_NAMES = [
 
 export function RecipientRoute() {
 	const { id } = useParams()
+	const [searchParams, setSearchParams] = useSearchParams()
+	const searchQuery = searchParams.get('q') ?? ''
 	const recipient = recipients.find((r) => r.id === id)
 
 	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
+
+	const filteredMessages = searchQuery
+		? matchSorter(recipient.messages, searchQuery, {
+				keys: ['content'],
+			})
+		: recipient.messages
+
+	function handleSearch(value: string) {
+		if (value) {
+			setSearchParams({ q: value })
+		} else {
+			setSearchParams({})
+		}
+	}
 
 	return (
 		<div className="flex min-h-0 flex-grow flex-col">
@@ -31,26 +48,57 @@ export function RecipientRoute() {
 					</ButtonLink>
 				</div>
 
-				<div className="mt-4 flex justify-between gap-4">
-					<div className="flex items-center gap-2">
-						<Icon name="Phone">
-							<span className="font-mono">
-								{recipient.countryCode} {recipient.phone}
-							</span>
-						</Icon>
+				<div className="mt-4 flex flex-col gap-4">
+					<div className="flex justify-between gap-4">
+						<div className="flex items-center gap-2">
+							<Icon name="Phone">
+								<span className="font-mono">
+									{recipient.countryCode} {recipient.phone}
+								</span>
+							</Icon>
+						</div>
+
+						<div className="flex items-center gap-2">
+							<Icon name="Clock">
+								<span>
+									{recipient.schedule ? (
+										`Every ${DAY_NAMES[recipient.nextScheduledAt?.getDay() ?? 0]} at ${recipient.nextScheduledAt?.getHours()}:${recipient.nextScheduledAt?.getMinutes()?.toString().padStart(2, '0')}`
+									) : (
+										<span className="text-foreground-alt">Schedule paused</span>
+									)}
+								</span>
+							</Icon>
+						</div>
 					</div>
 
-					<div className="flex items-center gap-2">
-						<Icon name="Clock">
-							<span>
-								{recipient.schedule ? (
-									`Every ${DAY_NAMES[recipient.nextScheduledAt?.getDay() ?? 0]} at ${recipient.nextScheduledAt?.getHours()}:${recipient.nextScheduledAt?.getMinutes()?.toString().padStart(2, '0')}`
-								) : (
-									<span className="text-foreground-alt">Schedule paused</span>
-								)}
-							</span>
-						</Icon>
-					</div>
+					<form
+						onSubmit={(e) => {
+							e.preventDefault()
+							const formData = new FormData(e.currentTarget)
+							const query = formData.get('q')
+							handleSearch(query?.toString() ?? '')
+						}}
+						className="flex items-center gap-2"
+					>
+						<div className="relative flex-1">
+							<input
+								type="search"
+								name="q"
+								placeholder="Search messages..."
+								className="text-foreground-alt placeholder:text-foreground-alt/60 h-10 w-full rounded-lg py-2 pr-12 pl-4"
+								value={searchQuery}
+								onChange={(e) => handleSearch(e.currentTarget.value)}
+							/>
+							<Button
+								type="submit"
+								icon
+								variant="borderless"
+								className="absolute top-1/2 right-2 -translate-y-1/2"
+							>
+								<Icon name="Search" title="Search messages" />
+							</Button>
+						</div>
+					</form>
 				</div>
 			</div>
 
@@ -62,7 +110,7 @@ export function RecipientRoute() {
 						node?.scrollTo({ top: node.scrollHeight, behavior: 'auto' })
 					}}
 				>
-					{recipient.messages.map((message) => {
+					{filteredMessages.map((message) => {
 						const status = message.sentAt ? 'sent' : 'scheduled'
 						const nextScheduledTime =
 							status === 'scheduled' ? message.scheduledAt : null

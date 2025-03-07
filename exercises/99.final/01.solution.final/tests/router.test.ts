@@ -72,3 +72,21 @@ test('404 error boundary should be shown for non-existent recipient', async ({
 	const errorMessage = page.getByText(/recipient.*not found/i)
 	await expect(errorMessage).toBeVisible({ timeout: 500 })
 })
+
+test('should show search results when a search query is provided', async ({
+	page,
+}) => {
+	await page.goto('/recipients')
+
+	const summary = page.getByText(/select recipient/i)
+	await summary.click()
+
+	const bethanyLink = page.getByRole('link', { name: /bethany/i })
+	await bethanyLink.click()
+
+	const searchInput = page.getByRole('searchbox', { name: /Search/i })
+	await searchInput.fill('love')
+
+	// Verify the URL has been updated with the search parameter
+	await expect(page).toHaveURL(/[/]recipients[/].*[?]q=love/)
+})
