@@ -17,18 +17,6 @@
       "path": "exercises/01.create-router/02.solution.router-elements"
     },
     {
-      "path": "exercises/01.create-router/03.problem.route-components"
-    },
-    {
-      "path": "exercises/01.create-router/03.solution.route-components"
-    },
-    {
-      "path": "exercises/01.create-router/04.problem.sibling-routes"
-    },
-    {
-      "path": "exercises/01.create-router/04.solution.sibling-routes"
-    },
-    {
       "path": "exercises/02.linking/01.problem.achors"
     },
     {
@@ -69,6 +57,9 @@
     },
     {
       "path": "exercises/03.nested-routes/04.solution.unnested-route"
+    },
+    {
+      "path": "exercises/04.route-paths/01.problem.dynamic-segments"
     },
     {
       "path": "exercises/04.route-paths/01.solution.dynamic-segments"
