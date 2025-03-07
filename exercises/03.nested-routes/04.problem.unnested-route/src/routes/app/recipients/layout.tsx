@@ -8,16 +8,19 @@ export function RecipientsLayout() {
 			<div className="mb-8 flex items-center justify-between">
 				<h1 className="text-4xl font-bold">
 					<Link
-						to="."
+						to="/recipients"
 						className="text-foreground hover:no-underline focus:no-underline"
 					>
 						Recipients
 					</Link>
 				</h1>
-				<ButtonLink to="new" className="hidden items-center gap-2 md:flex">
+				<ButtonLink
+					to="/recipients/new"
+					className="hidden items-center gap-2 md:flex"
+				>
 					<Icon name="Plus">Add New Recipient</Icon>
 				</ButtonLink>
-				<ButtonLink icon to="new" className="md:hidden">
+				<ButtonLink icon to="/recipients/new" className="md:hidden">
 					<Icon name="Plus" />
 				</ButtonLink>
 			</div>

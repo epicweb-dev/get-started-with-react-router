@@ -65,6 +65,12 @@
       "path": "exercises/04.route-paths/01.solution.dynamic-segments"
     },
     {
+      "path": "exercises/05.advanced-links/01.problem.relative-links"
+    },
+    {
+      "path": "exercises/05.advanced-links/01.solution.relative-links"
+    },
+    {
       "path": "exercises/99.final/01.solution.final"
     }
   ]
