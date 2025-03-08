@@ -1,5 +1,6 @@
 import { matchSorter } from 'match-sorter'
-import { useParams, useRouteError, useSearchParams } from 'react-router'
+// 🐨 bring in useSearchParams from react-router
+import { useParams } from 'react-router'
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.ts'
@@ -16,9 +17,11 @@ const DAY_NAMES = [
 
 export function RecipientRoute() {
 	const { id } = useParams()
-	const [searchParams, setSearchParams] = useSearchParams()
-	const searchQuery = searchParams.get('q') ?? ''
 	const recipient = recipients.find((r) => r.id === id)
+	// 🐨 get the searchParams from the useSearchParams hook
+
+	// 🐨 set the searchQuery to the value of the searchParams's 'q' key
+	const searchQuery = ''
 
 	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
 
@@ -28,12 +31,9 @@ export function RecipientRoute() {
 			})
 		: recipient.messages
 
-	function handleSearch(value: string) {
-		if (value) {
-			setSearchParams({ q: value })
-		} else {
-			setSearchParams({})
-		}
+	function handleSearch(_value: string) {
+		// 🐨 set the searchParams's 'q' key to the value
+		// 💯 if the value is empty, remove the 'q' key
 	}
 
 	return (
@@ -202,20 +202,6 @@ export function RecipientRoute() {
 						</Button>
 					</form>
 				</div>
-			</div>
-		</div>
-	)
-}
-
-export function RecipientErrorBoundary() {
-	const error = useRouteError()
-
-	return (
-		<div className="container mx-auto mt-4 flex flex-col gap-8 px-8">
-			<div className="bg-danger-background rounded-sm p-4">
-				<p className="text-danger-foreground">
-					{error instanceof Error ? error.message : 'Unknown error'}
-				</p>
 			</div>
 		</div>
 	)

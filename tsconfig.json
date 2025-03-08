@@ -83,6 +83,12 @@
       "path": "exercises/05.advanced-links/03.solution.nav-link-render-prop"
     },
     {
+      "path": "exercises/06.search-params/01.problem.search-params"
+    },
+    {
+      "path": "exercises/06.search-params/01.solution.search-params"
+    },
+    {
       "path": "exercises/99.final/01.solution.final"
     }
   ]

@@ -1,5 +1,5 @@
 import { matchSorter } from 'match-sorter'
-import { useParams, useRouteError, useSearchParams } from 'react-router'
+import { useParams, useSearchParams } from 'react-router'
 import { Button, ButtonLink } from '#src/components/button.tsx'
 import { Icon } from '#src/components/icon.tsx'
 import { recipients } from '#src/data.ts'
@@ -202,20 +202,6 @@ export function RecipientRoute() {
 						</Button>
 					</form>
 				</div>
-			</div>
-		</div>
-	)
-}
-
-export function RecipientErrorBoundary() {
-	const error = useRouteError()
-
-	return (
-		<div className="container mx-auto mt-4 flex flex-col gap-8 px-8">
-			<div className="bg-danger-background rounded-sm p-4">
-				<p className="text-danger-foreground">
-					{error instanceof Error ? error.message : 'Unknown error'}
-				</p>
 			</div>
 		</div>
 	)
