@@ -18,7 +18,17 @@ export function RecipientRoute() {
 	const id = 'TODO'
 	const recipient = recipients.find((r) => r.id === id)
 
-	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
+	if (!recipient) {
+		return (
+			<div className="container mx-auto mt-4 flex flex-col gap-8 px-8">
+				<div className="bg-danger-background rounded-sm p-4">
+					<p className="text-danger-foreground">
+						Recipient with ID of "{id}" not found
+					</p>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className="flex min-h-0 flex-grow flex-col">

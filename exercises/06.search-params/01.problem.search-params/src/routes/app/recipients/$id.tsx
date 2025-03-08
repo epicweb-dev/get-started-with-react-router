@@ -23,7 +23,17 @@ export function RecipientRoute() {
 	// 🐨 set the searchQuery to the value of the searchParams's 'q' key
 	const searchQuery = ''
 
-	if (!recipient) throw new Error(`Recipient with ID of "${id}" not found`)
+	if (!recipient) {
+		return (
+			<div className="container mx-auto mt-4 flex flex-col gap-8 px-8">
+				<div className="bg-danger-background rounded-sm p-4">
+					<p className="text-danger-foreground">
+						Recipient with ID of "{id}" not found
+					</p>
+				</div>
+			</div>
+		)
+	}
 
 	const filteredMessages = searchQuery
 		? matchSorter(recipient.messages, searchQuery, {

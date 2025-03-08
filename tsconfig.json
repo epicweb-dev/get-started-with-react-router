@@ -89,7 +89,22 @@
       "path": "exercises/06.search-params/01.solution.search-params"
     },
     {
-      "path": "exercises/99.final/01.solution.final"
+      "path": "exercises/07.error-boundaries/01.problem.app-boundary"
+    },
+    {
+      "path": "exercises/07.error-boundaries/01.solution.app-boundary"
+    },
+    {
+      "path": "exercises/07.error-boundaries/02.problem.localized-boundary"
+    },
+    {
+      "path": "exercises/07.error-boundaries/02.solution.localized-boundary"
+    },
+    {
+      "path": "exercises/07.error-boundaries/03.problem.not-found"
+    },
+    {
+      "path": "exercises/07.error-boundaries/03.solution.not-found"
     }
   ]
 }
