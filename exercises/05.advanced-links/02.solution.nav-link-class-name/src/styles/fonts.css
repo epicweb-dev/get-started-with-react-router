@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+/* Source_Serif_4 */
+@font-face {
+	font-family: 'Source_Serif_4';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/Source_Serif_4/SourceSerif4-VariableFont_opsz,wght.ttf')
+		format('truetype');
+}

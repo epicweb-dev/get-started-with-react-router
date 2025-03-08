@@ -71,6 +71,18 @@
       "path": "exercises/05.advanced-links/01.solution.relative-links"
     },
     {
+      "path": "exercises/05.advanced-links/02.problem.nav-link-class-name"
+    },
+    {
+      "path": "exercises/05.advanced-links/02.solution.nav-link-class-name"
+    },
+    {
+      "path": "exercises/05.advanced-links/03.problem.nav-link-render-prop"
+    },
+    {
+      "path": "exercises/05.advanced-links/03.solution.nav-link-render-prop"
+    },
+    {
       "path": "exercises/99.final/01.solution.final"
     }
   ]
