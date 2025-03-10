@@ -31,7 +31,6 @@ export function RecipientRoute() {
 
 	return (
 		<div className="flex min-h-0 flex-grow flex-col">
-			{/* Left sidebar (header on mobile) */}
 			<div className="border-border flex-shrink-0 border-b p-4">
 				<div className="flex items-center justify-between md:mb-3">
 					<h2 className="text-2xl font-bold md:text-3xl">{recipient.name}</h2>
