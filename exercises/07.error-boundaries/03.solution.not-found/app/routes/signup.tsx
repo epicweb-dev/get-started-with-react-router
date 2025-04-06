@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
-import { Button } from '#src/components/button.tsx'
-import { Icon } from '#src/components/icon.tsx'
+import { Button } from '#app/components/button.tsx'
+import { Icon } from '#app/components/icon.tsx'
 
 export function SignupRoute() {
 	return (

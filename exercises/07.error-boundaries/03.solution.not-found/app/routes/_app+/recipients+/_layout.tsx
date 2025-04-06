@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { Link, NavLink, Outlet } from 'react-router'
-import { ButtonLink } from '#src/components/button.tsx'
-import { Icon } from '#src/components/icon.tsx'
-import { recipients } from '#src/data.ts'
+import { ButtonLink } from '#app/components/button.tsx'
+import { Icon } from '#app/components/icon.tsx'
+import { recipients } from '#app/data.ts'
 
 export function RecipientsLayout() {
 	return (

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router'
-import { ButtonLink } from '#src/components/button.tsx'
-import { Icon } from '#src/components/icon.tsx'
-import { recipients } from '#src/data.ts'
-import { RecipientEditor } from './recipient-editor.tsx'
+import { ButtonLink } from '#app/components/button.tsx'
+import { Icon } from '#app/components/icon.tsx'
+import { recipients } from '#app/data.ts'
+import { RecipientEditor } from './__recipient-editor.tsx'
 
 export function RecipientEditRoute() {
 	const { id } = useParams()

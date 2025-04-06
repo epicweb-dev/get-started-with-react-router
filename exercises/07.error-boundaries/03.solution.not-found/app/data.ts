@@ -1,5 +1,9 @@
-import CronExpressionParser from 'cron-parser'
-import * as rawData from '#src/data.json'
+import CronExpressionParserImp from 'cron-parser'
+import * as rawData from '#app/data.json'
+
+// weird hack because cron-parser is commonjs with bad types
+const CronExpressionParser = ((CronExpressionParserImp as any).default ??
+	CronExpressionParserImp) as typeof CronExpressionParserImp
 
 export const recipients = rawData.recipients.map((recipient) => {
 	// the fallback is just to calculate previous messages in the event

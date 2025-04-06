@@ -1,6 +1,24 @@
-import { useRouteError } from 'react-router'
+import { Outlet, useRouteError } from 'react-router'
+import styles from './styles/index.css?url'
 
-export function UnknownErrorBoundary() {
+export default function Root() {
+	return (
+		<html lang="en">
+			<head>
+				<meta charSet="UTF-8" />
+				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+				<link rel="stylesheet" href={styles} />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<title>GratiText</title>
+			</head>
+			<body>
+				<Outlet />
+			</body>
+		</html>
+	)
+}
+
+export function ErrorBoundary() {
 	const error = useRouteError()
 
 	return (

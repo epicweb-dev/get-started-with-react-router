@@ -1,6 +1,6 @@
-import { Button } from '#src/components/button.tsx'
-import { Icon } from '#src/components/icon.tsx'
-import { type recipients } from '#src/data.ts'
+import { Button } from '#app/components/button.tsx'
+import { Icon } from '#app/components/icon.tsx'
+import { type recipients } from '#app/data.ts'
 
 type Recipient = (typeof recipients)[number]
 
@@ -104,7 +104,7 @@ export function RecipientEditor({
 						required
 						defaultValue={recipient?.schedule?.cron
 							?.split(' ')[4]
-							.split(',')
+							?.split(',')
 							.map(String)}
 					>
 						<option value="1">Monday</option>

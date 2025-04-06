@@ -1,4 +1,4 @@
-import { ButtonLink } from '#src/components/button.tsx'
+import { ButtonLink } from '#app/components/button.tsx'
 
 export function HomepageRoute() {
 	return (

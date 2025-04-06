@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Icon } from '#src/components/icon.tsx'
+import { Icon } from '#app/components/icon.tsx'
 
 export function AboutRoute() {
 	return (

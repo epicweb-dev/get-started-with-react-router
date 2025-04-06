@@ -1,8 +1,8 @@
 import { matchSorter } from 'match-sorter'
 import { useParams, useRouteError, useSearchParams } from 'react-router'
-import { Button, ButtonLink } from '#src/components/button.tsx'
-import { Icon } from '#src/components/icon.tsx'
-import { recipients } from '#src/data.ts'
+import { Button, ButtonLink } from '#app/components/button.tsx'
+import { Icon } from '#app/components/icon.tsx'
+import { recipients } from '#app/data.ts'
 
 const DAY_NAMES = [
 	'Sunday',

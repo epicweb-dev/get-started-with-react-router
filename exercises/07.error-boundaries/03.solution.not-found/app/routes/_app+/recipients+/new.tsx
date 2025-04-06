@@ -1,4 +1,4 @@
-import { RecipientEditor } from './recipient-editor.tsx'
+import { RecipientEditor } from './__recipient-editor.tsx'
 
 export function NewRecipientRoute() {
 	return (
