@@ -4,19 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "imports": {
-    "#src/*": "./src/*"
+    "#app/*": "./app/*"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
     "test": "playwright test --config=./tests/playwright.config.ts"
   },
   "dependencies": {
+    "@epic-web/config": "^1.17.2",
+    "@react-router/node": "^7.3.0",
+    "@react-router/serve": "^7.3.0",
     "@tailwindcss/vite": "^4.0.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cron-parser": "^5.0.4",
+    "isbot": "^5",
     "match-sorter": "^8.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -25,10 +29,13 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
+    "@react-router/dev": "^7.3.0",
+    "@react-router/remix-routes-option-adapter": "^7.3.0",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "remix-flat-routes": "^0.8.5",
     "typescript": "^5.7.3",
     "vite": "^6.2.0"
   }
