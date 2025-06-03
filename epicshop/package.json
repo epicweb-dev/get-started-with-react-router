@@ -5,8 +5,8 @@
     "test": "cd .. && node ./epicshop/test.js ..s"
   },
   "dependencies": {
-    "@epic-web/workshop-app": "^5.22.0",
-    "@epic-web/workshop-utils": "^5.22.0",
+    "@epic-web/workshop-app": "^5.22.1",
+    "@epic-web/workshop-utils": "^5.22.1",
     "chokidar": "^4.0.3",
     "enquirer": "^2.4.1",
     "execa": "^9.5.2",
