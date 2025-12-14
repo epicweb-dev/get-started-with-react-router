@@ -8,6 +8,7 @@
     "@epic-web/workshop-app": "^6.45.7",
     "@epic-web/workshop-utils": "^6.45.7",
     "chokidar": "^4.0.3",
+    "epicshop": "^6.45.7",
     "enquirer": "^2.4.1",
     "execa": "^9.5.2",
     "fs-extra": "^11.3.0",
